@@ -1,0 +1,2 @@
+This folder will contain contents that reasearched. Each part of researching contents should be separate from each .doc file.
+For example: MapActivity class should be stand-alone file.	
