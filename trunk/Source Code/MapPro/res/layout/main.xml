@@ -4,9 +4,21 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-<TextView  
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/hello"
-    />
+<GridView   
+    android:id="@+id/gridview"  
+    android:background="@android:color/white"
+    android:layout_width="fill_parent"   
+    android:columnWidth="90dp"  
+    android:numColumns="2"  
+    android:verticalSpacing="50dp"  
+    android:horizontalSpacing="10dp"  
+    android:stretchMode="spacingWidth"  
+    android:gravity="fill" android:layout_height="388dp"/>
+<TextView 
+	android:id="@+id/text_place"
+	android:gravity="center"
+	android:layout_height="wrap_content" 
+	android:layout_width="fill_parent" 
+	android:text="@string/hello"></TextView>
+	android
 </LinearLayout>
