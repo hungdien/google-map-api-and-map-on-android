@@ -9,7 +9,6 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.TextView.OnEditorActionListener;
 
 public class MapProActivity extends Activity {
     /** Called when the activity is first created. */
@@ -18,9 +17,6 @@ public class MapProActivity extends Activity {
 	     setContentView(R.layout.main);
 	     GridView gridview = (GridView) findViewById(R.id.gridview);
 	     gridview.setAdapter(new ImageAdapter(this));
-	     
-	     final TextView text=(TextView) findViewById(R.id.text_place);
-	     //gridview.setOnClickListener()
 	 }
 
 	 public class ImageAdapter extends BaseAdapter {
@@ -42,10 +38,9 @@ public class MapProActivity extends Activity {
 	         ImageView imageView;
 	         if (convertView == null) {  // if it's not recycled, initialize some attributes
 	             imageView = new ImageView(mContext);
-	             imageView.setLayoutParams(new GridView.LayoutParams(180, 180));
+	             imageView.setLayoutParams(new GridView.LayoutParams(150, 130));
 	             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-	             imageView.setPadding(8, 8, 8, 8);
-	             imageView.setOnClickListener()
+	             imageView.setPadding(20, 110, 20, 90);
 	         } else {
 	             imageView = (ImageView) convertView;
 	         }
