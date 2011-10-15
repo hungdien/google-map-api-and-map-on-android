@@ -7,13 +7,15 @@
 <GridView   
     android:id="@+id/gridview"  
     android:background="@android:color/white"
+    
     android:layout_width="fill_parent"   
     android:columnWidth="90dp"  
     android:numColumns="2"  
-    android:verticalSpacing="50dp"  
+    android:verticalSpacing="100dp"  
     android:horizontalSpacing="10dp"  
-    android:stretchMode="spacingWidth"  
-    android:gravity="fill" android:layout_height="388dp"/>
+    android:stretchMode="spacingWidth"
+    android:paddingTop="20dp"  
+    android:gravity="center" android:layout_height="388dp"/>
 <TextView 
 	android:id="@+id/text_place"
 	android:gravity="center"
