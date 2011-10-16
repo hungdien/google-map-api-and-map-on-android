@@ -9,7 +9,7 @@
 	    android:background="@android:color/white"
 	    android:layout_width="fill_parent"   
 	    android:numColumns="2"  
-	    android:verticalSpacing="50px"  
+	    android:verticalSpacing="50px" 
 	    android:gravity="fill"
 	    android:layout_height="350dp"/>
 	<TextView 
