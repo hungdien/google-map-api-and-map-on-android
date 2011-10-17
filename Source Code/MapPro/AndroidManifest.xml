@@ -14,5 +14,7 @@
             </intent-filter>
         </activity>
 		<activity android:name=".MapPlaces"></activity> 
+		<activity android:name=".InputAddress"></activity>
+		<activity android:name=".MapDirection"></activity>
     </application>
 </manifest>
