@@ -5,6 +5,7 @@ package com.mappro;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,6 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 /**
@@ -31,6 +31,9 @@ public class MapPlaces extends Activity {
 	     //Click item event
 	     places.setOnItemClickListener(new OnItemClickListener() {
 	    	  public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+	    		  Intent intent = new Intent(); 
+	    		  intent.setClass(MapPlaces.this, InputAddress.class);
+            	  startActivity(intent);
 	          }
 		});
 	 }
