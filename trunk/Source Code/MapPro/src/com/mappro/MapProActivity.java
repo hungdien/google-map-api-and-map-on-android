@@ -27,9 +27,22 @@ public class MapProActivity extends Activity {
 	              //Toast.makeText(MapProActivity.this, "" + position, Toast.LENGTH_LONG).show();
 	              
 	              Intent intent = new Intent();
+	              
 	              if(position==0)
 	              {
 	            	  intent.setClass(MapProActivity.this, MapPlaces.class);
+	            	  startActivity(intent);
+	            	  return;
+	              }
+	              
+	              if(position==1)
+	              {
+	            	  return;
+	              }
+	              
+	              if(position==2)
+	              {
+	            	  intent.setClass(MapProActivity.this, MapDirection.class);
 	            	  startActivity(intent);
 	              }
 	          }
