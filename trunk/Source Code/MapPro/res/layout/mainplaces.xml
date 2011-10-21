@@ -10,17 +10,36 @@
 	    android:background="@android:color/transparent"
 	    android:layout_width="fill_parent"   
 	    android:numColumns="2"  
-	    android:verticalSpacing="15px"
+	    android:verticalSpacing="25px"
+	    android:paddingTop="1px"
 	    android:paddingLeft="15px"
-	    android:paddingRight="50px" 
 	    android:gravity="fill"
-	    android:layout_height="250dp" android:layout_weight="0.76"/>
-	<TextView 
-		android:id="@+id/txtPosition"
-		android:gravity="center"
-		android:layout_height="wrap_content" 
-		android:layout_width="fill_parent"
-		android:paddingTop="20dp" 
-		android:text="@string/hello">
-	</TextView>
+	    android:layout_height="260dp" 
+	    android:layout_weight="0.76" 
+	    android:horizontalSpacing="5px"/>
+	 <LinearLayout 
+	 	xmlns:android="http://schemas.android.com/apk/res/android"
+    	android:orientation="horizontal"
+    	android:layout_width="fill_parent"
+    	android:gravity="center"
+    	android:weightSum="1" 
+    	android:layout_height="40dp"
+    	android:layout_weight="0.22">
+	    <ImageView 
+	    	android:layout_width="40px" 
+	    	android:layout_marginLeft="25px"
+	    	android:baselineAlignBottom="true" 
+	    	android:layout_height="35px" 
+	    	android:src="@drawable/startpoint" 
+	    	android:id="@+id/currentlocation"></ImageView>
+		<TextView 
+			android:layout_width="wrap_content" 
+			android:gravity="left"
+			android:id="@+id/txtPosition" 
+			android:layout_height="wrap_content" 
+			android:textColor="#0000FF"
+			android:textSize="12px"
+			android:text="Your current location here!!!" 
+			android:layout_weight="0.98"></TextView>
+	 </LinearLayout>
 </LinearLayout>
