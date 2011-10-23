@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.0">
+	<Document>
+		<name>46 CMT8, Bến Thành, Ho Chi Minh City, Hồ Chí Minh, Vietnam to cầu Thị Nghè, phường 19, Bình Thạnh district, Hồ Chí Minh, Vietnam</name>
+		<Style id="roadStyle">
+			<LineStyle>
+				<color>7fcf0064</color>
+				<width>6</width>
+			</LineStyle>
+		</Style>
+		<Snippet>
+			<![CDATA[<font size=+1><a href="http://maps.google.com/maps?saddr=46++CMT8&daddr=cau+thi+nghe">Printable view</a></font>]]>
+		</Snippet>
+		<Placemark>
+			<name>Head northwest on Cách Mạng Tháng Tám toward Bùi Thị Xuân</name>
+			<description><![CDATA[go 350&#160;m]]></description>
+			<address>46 CMT8, Bến Thành, Ho Chi Minh City, Hồ Chí Minh, Vietnam</address>
+			<StyleMap>
+				<Pair>
+					<key>normal</key>
+					<Style>
+						<IconStyle>
+							<Icon>
+								<href>http://maps.gstatic.com/intl/en_ALL/mapfiles/kml/paddle/go.png</href>
+							</Icon>
+							<hotSpot x="0.500000" y="0.000000" xunits="fraction" yunits="fraction" />
+						</IconStyle>
+						<ListStyle>
+							<ItemIcon>
+								<href>http://maps.gstatic.com/intl/en_ALL/mapfiles/kml/paddle/go-lv.png</href>
+							</ItemIcon>
+						</ListStyle>
+					</Style>
+				</Pair>
+				<Pair>
+					<key>highlight</key>
+					<Style>
+						<IconStyle>
+							<scale>1.300000</scale>
+							<Icon><href>http://maps.gstatic.com/intl/en_ALL/mapfiles/kml/paddle/go.png</href>
+							</Icon>
+							<hotSpot x="0.500000" y="0.000000" xunits="fraction" yunits="fraction" />
+						</IconStyle>
+						<ListStyle>
+							<ItemIcon>
+								<href>http://maps.gstatic.com/intl/en_ALL/mapfiles/kml/paddle/go-lv.png</href>
+							</ItemIcon>
+						</ListStyle>
+					</Style>
+				</Pair>
+			</StyleMap>
+			<Point>
+				<coordinates>106.691990,10.772170,0</coordinates>
+			</Point>
+			<LookAt>
+				<longitude>106.691990</longitude>
+				<latitude>10.772170</latitude>
+				<range>100.000000</range>
+				<tilt>45.000000</tilt>
+				<heading>298.531860</heading>
+			</LookAt>
+		</Placemark>
+		<Placemark>
+			<name>Turn right onto Nguyễn Thị Minh Khai</name>
+			<description><![CDATA[go 2.6&#160;km]]></description>
+			<StyleMap>
+				<Pair>
+					<key>normal</key>
+					<Style>
+						<IconStyle>
+							<Icon>
+								<href>http://maps.gstatic.com/intl/en_ALL/mapfiles/kml/paddle/pause.png</href>
+							</Icon>
+							<hotSpot x="0.500000" y="0.000000" xunits="fraction" yunits="fraction" />
+						</IconStyle>
+						<ListStyle>
+							<ItemIcon>
+								<href>http://maps.gstatic.com/intl/en_ALL/mapfiles/kml/paddle/pause-lv.png</href>
+							</ItemIcon>
+						</ListStyle>
+					</Style>
+				</Pair>
+				<Pair>
+					<key>highlight</key>
+					<Style>
+						<IconStyle>
+							<scale>1.300000</scale>
+							<Icon>
+								<href>http://maps.gstatic.com/intl/en_ALL/mapfiles/kml/paddle/pause.png</href>
+							</Icon>
+							<hotSpot x="0.500000" y="0.000000" xunits="fraction" yunits="fraction" />
+						</IconStyle>
+						<ListStyle>
+							<ItemIcon>
+								<href>http://maps.gstatic.com/intl/en_ALL/mapfiles/kml/paddle/pause-lv.png</href>
+							</ItemIcon>
+						</ListStyle>
+					</Style>
+				</Pair>
+			</StyleMap>
+			<Point>
+				<coordinates>106.689380,10.773620,0</coordinates>
+			</Point>
+			<LookAt>
+				<longitude>106.689380</longitude>
+				<latitude>10.773620</latitude>
+				<range>100.000000</range>
+				<tilt>45.000000</tilt>
+				<heading>301.415222</heading>
+			</LookAt>
+		</Placemark>
+		<Placemark>
+			<name>Continue onto cầu Thị Nghè</name>
+			<description><![CDATA[go 280&#160;m]]></description>
+			<StyleMap>
+				<Pair>
+					<key>normal</key>
+					<Style>
+						<IconStyle>
+							<Icon>
+								<href>http://maps.gstatic.com/intl/en_ALL/mapfiles/kml/paddle/pause.png</href>
+							</Icon>
+							<hotSpot x="0.500000" y="0.000000" xunits="fraction" yunits="fraction" />
+						</IconStyle>
+						<ListStyle>
+							<ItemIcon>
+								<href>http://maps.gstatic.com/intl/en_ALL/mapfiles/kml/paddle/pause-lv.png</href>
+							</ItemIcon>
+						</ListStyle>
+					</Style>
+				</Pair>
+				<Pair>
+					<key>highlight</key>
+					<Style>
+						<IconStyle>
+							<scale>1.300000</scale>
+							<Icon><href>http://maps.gstatic.com/intl/en_ALL/mapfiles/kml/paddle/pause.png</href></Icon>
+							<hotSpot x="0.500000" y="0.000000" xunits="fraction" yunits="fraction" />
+						</IconStyle>
+						<ListStyle>
+							<ItemIcon>
+								<href>http://maps.gstatic.com/intl/en_ALL/mapfiles/kml/paddle/pause-lv.png</href>
+							</ItemIcon>
+						</ListStyle>
+					</Style>
+				</Pair>
+			</StyleMap>
+			<Point>
+				<coordinates>106.705650,10.790870,0</coordinates></Point>
+				<LookAt>
+					<longitude>106.705650</longitude>
+					<latitude>10.790870</latitude>
+					<range>100.000000</range>
+					<tilt>45.000000</tilt>
+					<heading>42.505920</heading>
+					</LookAt>
+		</Placemark>
+		<Placemark>
+			<name>Arrive at: cầu Thị Nghè, phường 19, Bình Thạnh district, Hồ Chí Minh, Vietnam</name>
+			<address>cầu Thị Nghè, phường 19, Bình Thạnh district, Hồ Chí Minh, Vietnam</address>
+			<StyleMap><Pair><key>normal</key><Style><IconStyle><Icon><href>http://maps.gstatic.com/intl/en_ALL/mapfiles/kml/paddle/stop.png</href></Icon></IconStyle><ListStyle><ItemIcon><href>http://maps.gstatic.com/intl/en_ALL/mapfiles/kml/paddle/stop-lv.png</href></ItemIcon></ListStyle></Style></Pair><Pair><key>highlight</key><Style><IconStyle><scale>1.300000</scale><Icon><href>http://maps.gstatic.com/intl/en_ALL/mapfiles/kml/paddle/stop.png</href></Icon></IconStyle><ListStyle><ItemIcon><href>http://maps.gstatic.com/intl/en_ALL/mapfiles/kml/paddle/stop-lv.png</href></ItemIcon></ListStyle></Style></Pair></StyleMap><Point><coordinates>106.707400,10.792750,0</coordinates></Point></Placemark><Placemark><name>Route</name><description><![CDATA[Distance: 3.2&#160;km (about 6 mins)<br/>Map data ©2011 Google]]></description><GeometryCollection><LineString><coordinates>106.691990,10.772170,0.000000 106.690230,10.773110,0.000000 106.689380,10.773620,0.000000 106.689380,10.773620,0.000000 106.698820,10.783700,0.000000 106.701610,10.786540,0.000000 106.705650,10.790870,0.000000 106.705650,10.790870,0.000000 106.707400,10.792750,0.000000 </coordinates></LineString></GeometryCollection><styleUrl>#roadStyle</styleUrl></Placemark></Document></kml>
