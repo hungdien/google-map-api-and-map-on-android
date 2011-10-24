@@ -15,7 +15,6 @@ public class PlaceModel {
 		this.address = "";
 		this.name = "";
 	}
-
 	
 	public String getLat() {
 		return lat;
