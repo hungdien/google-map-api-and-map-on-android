@@ -16,5 +16,8 @@
 		<activity android:name=".MapPlaces"></activity> 
 		<activity android:name=".InputAddress"></activity>
 		<activity android:name=".MapDirection"></activity>
+		<activity android:name=".LocationListDetail"></activity>
     </application>
+    <uses-permission android:name="android.permission.INTERNET"/>    
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 </manifest>
