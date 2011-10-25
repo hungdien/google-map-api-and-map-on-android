@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 public class LazyAdapter extends BaseAdapter {
@@ -43,10 +42,10 @@ public class LazyAdapter extends BaseAdapter {
 
         TextView text=(TextView)vi.findViewById(R.id.text);
         TextView text1=(TextView)vi.findViewById(R.id.small_text);
-        ImageView image=(ImageView)vi.findViewById(R.id.image);
+        
         text.setText("item "+position);
         text1.setText("here");
-        imageLoader.DisplayImage(data[position], activity, image);
+        
         return vi;
     }
 }
