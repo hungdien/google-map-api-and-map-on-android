@@ -1,5 +1,7 @@
 package com.mappro;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,18 +9,24 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import com.mappro.locationlistview.*;
+import com.mappro.model.PlaceModel;
+import com.mappro.supportedclass.GoogleDataReader;
 
 public class LocationListDetail extends Activity {
-	 	ListView list;
-	    LazyAdapter adapter;
-
+	 	private ListView list;
+	    private LazyAdapter adapter;
+	    private ArrayList<PlaceModel> lstPlaceModel;
+	    
 	    @Override
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.locationdetail);
 	        
+	        GoogleDataReader dataReader = new GoogleDataReader();
+	        lstPlaceModel = dataReader.PlacesInfoReader("atm", 21.029505, 105.850566, 20);
+	        
 	        list=(ListView)findViewById(R.id.list);
-	        adapter=new LazyAdapter(this, mStrings);
+	        adapter=new LazyAdapter(this, lstPlaceModel);
 	        list.setAdapter(adapter);
 	        
 	        Button b=(Button)findViewById(R.id.button1);
@@ -41,31 +49,13 @@ public class LocationListDetail extends Activity {
 	        }
 	    };
 	    
-	    private String[] mStrings={
+	  /*  private String[] mStrings={
 	            "http://a3.twimg.com/profile_images/956404323/androinica-avatar_normal.png",
 	            "http://a1.twimg.com/profile_images/909231146/Android_Biz_Man_normal.png",
 	            "http://a3.twimg.com/profile_images/72774055/AndroidHomme-LOGO_normal.jpg",
 	            "http://a1.twimg.com/profile_images/349012784/android_logo_small_normal.jpg",
 	            "http://a1.twimg.com/profile_images/841338368/ea-twitter-icon.png",
 	            "http://a3.twimg.com/profile_images/64827025/android-wallpaper6_2560x160_normal.png",
-	            "http://a3.twimg.com/profile_images/77641093/AndroidPlanet_normal.png",
-	            "http://a3.twimg.com/profile_images/64827025/android-wallpaper6_2560x160_normal.png",
-	            "http://a3.twimg.com/profile_images/77641093/AndroidPlanet_normal.png",
-	            "http://a1.twimg.com/profile_images/850960042/elandroidelibre-logo_300x300_normal.jpg",
-	            "http://a1.twimg.com/profile_images/655119538/andbook_normal.png",
-	            "http://a3.twimg.com/profile_images/511790713/AG_normal.png",
-	            "http://a3.twimg.com/profile_images/956404323/androinica-avatar_normal.png",
-	            "http://a1.twimg.com/profile_images/909231146/Android_Biz_Man_normal.png",
-	            "http://a3.twimg.com/profile_images/121630227/Droid_normal.jpg",
-	            "http://a1.twimg.com/profile_images/957149154/twitterhalf.jpg",
-	            "http://a1.twimg.com/profile_images/97470808/icon_normal.png",
-	            "http://a3.twimg.com/profile_images/511790713/AG_normal.png",
-	            "http://a3.twimg.com/profile_images/956404323/androinica-avatar_normal.png",
-	            "http://a1.twimg.com/profile_images/909231146/Android_Biz_Man_normal.png",
-	            "http://a3.twimg.com/profile_images/72774055/AndroidHomme-LOGO_normal.jpg",
-	            "http://a1.twimg.com/profile_images/349012784/android_logo_small.jpg",
-	            "http://a1.twimg.com/profile_images/841338368/ea-twitter-icon_normal.png",
-	            "http://a3.twimg.com/profile_images/64827025/android-wallpaper6_2560x160_normal.png",
 	            "http://a3.twimg.com/profile_images/77641093/AndroidPlanet_normal.png"
-	    };
+	    };*/
 }
