@@ -1,5 +1,7 @@
 package com.mappro.locationlistview;
 
+import java.util.ArrayList;
+
 import com.mappro.R;
 import android.app.Activity;
 import android.content.Context;
@@ -8,15 +10,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import com.mappro.model.*;
 
 public class LazyAdapter extends BaseAdapter {
     
     private Activity activity;
-    private String[] data;
+    private ArrayList<PlaceModel> data;
     private static LayoutInflater inflater=null;
     public ImageLoader imageLoader; 
     
-    public LazyAdapter(Activity a, String[] d) {
+    public LazyAdapter(Activity a, ArrayList<PlaceModel> d) {
         activity = a;
         data=d;
         inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -24,7 +27,7 @@ public class LazyAdapter extends BaseAdapter {
     }
 
     public int getCount() {
-        return data.length;
+        return data.size();
     }
 
     public Object getItem(int position) {
@@ -43,8 +46,8 @@ public class LazyAdapter extends BaseAdapter {
         TextView text=(TextView)vi.findViewById(R.id.text);
         TextView text1=(TextView)vi.findViewById(R.id.small_text);
         
-        text.setText("item "+position);
-        text1.setText("here");
+        text.setText(data.get(position).getName());
+        text1.setText(data.get(position).getAddress());
         
         return vi;
     }
