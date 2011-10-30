@@ -1,5 +1,8 @@
 package com.mappro.supportedclass;
 
+import android.location.Address;
+import android.location.Geocoder;
+
 import com.mappro.model.*;
 
 import java.io.IOException;
@@ -7,6 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -22,8 +26,8 @@ public class GoogleDataReader {
 		
 	}
 	
-	public ArrayList<PlaceModel>  PlacesInfoReader(String keyword, double lat, double lng,
-												   int num)
+	//Get place info
+	public ArrayList<PlaceModel> PlacesInfoReader(String keyword, double lat, double lng, int num)
 	{
 		ArrayList<PlaceModel> lstPlaceMode = new ArrayList<PlaceModel>();
 		
@@ -95,5 +99,31 @@ public class GoogleDataReader {
     	}
 		
 		return lstPlaceMode;
+	}
+	
+	//Get full address by given latitude & longitude
+	public String GetAddressFromLatLng(double lat, double lng, Geocoder geocoder)
+	{
+		 String AddressLine = "";
+		 try {
+	        	
+	  	      List<Address> addresses = geocoder.getFromLocation(lat, lng, 1);
+	  	      
+	  	      //just get first item of list address
+	  	      Address add = addresses.get(0);
+	  	      
+	  	      //get full address
+	  	      for(int i=0;i< add.getMaxAddressLineIndex()-1;i++)
+	  	      {
+	  	    	  if(i==(add.getMaxAddressLineIndex()-2))
+	  	    		  AddressLine +=  add.getAddressLine(i)+ ".";
+	  	    	  else
+	  	    		AddressLine +=  add.getAddressLine(i)+ ", ";
+	  	      }
+	  	    } catch (IOException e) {
+	  	    	AddressLine = "You're not on the street now!"; 
+	  	    }
+		 
+		return AddressLine;
 	}
 }
