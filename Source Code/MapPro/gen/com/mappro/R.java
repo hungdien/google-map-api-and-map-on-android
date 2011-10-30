@@ -42,6 +42,7 @@ public final class R {
         public static final int gvPlaces=0x7f050018;
         public static final int image=0x7f05000b;
         public static final int list=0x7f050009;
+        public static final int main_text_place=0x7f050010;
         public static final int radiob_list=0x7f050006;
         public static final int radiob_list1=0x7f050016;
         public static final int radiob_map=0x7f050005;
@@ -52,7 +53,6 @@ public final class R {
         public static final int textView2=0x7f050001;
         public static final int textView3=0x7f050015;
         public static final int textView4=0x7f050012;
-        public static final int text_place=0x7f050010;
         public static final int txtPosition=0x7f050019;
     }
     public static final class layout {
