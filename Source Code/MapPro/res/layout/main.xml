@@ -33,7 +33,7 @@
 			android:textSize="12px"
 			android:text="Loading..." 
 			android:paddingTop="20dp"
-			android:paddingRight="10dp" 
+			android:paddingRight="15dp" 
 			android:layout_weight="0.98"></TextView>
 	 </LinearLayout>
 	
