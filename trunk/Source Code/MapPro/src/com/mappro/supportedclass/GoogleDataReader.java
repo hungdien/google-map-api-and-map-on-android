@@ -108,6 +108,10 @@ public class GoogleDataReader {
 		 try {
 	        	
 	  	      List<Address> addresses = geocoder.getFromLocation(lat, lng, 1);
+	  	      if (addresses == null) {
+	  	    	  return AddressLine;
+	  	      }
+	  	      
 	  	      
 	  	      //just get first item of list address
 	  	      Address add = addresses.get(0);
@@ -125,5 +129,30 @@ public class GoogleDataReader {
 	  	    }
 		 
 		return AddressLine;
+	}
+	
+	//Get latitude & longitude from given address 
+	public CPoint GetLatLngFromAddress(String locationName, Geocoder geocoder)
+	{
+		CPoint point = new CPoint();
+		try {
+	        	
+	  	     List<Address> addresses = geocoder.getFromLocationName(locationName, 1);
+	  	     if(addresses==null){
+	  	    	 //return point;
+	  	     }
+	  	      
+	  	     //just get first item of list address
+	  	     Address add = addresses.get(0);
+	  	   
+	  	     point.lat = add.getLatitude();
+	  	     point.lng = add.getLongitude();
+	  	     
+	  	     return point;
+	  	      
+	  	    } catch (IOException e) {
+	  	    	
+	  	    }
+		return point;
 	}
 }
