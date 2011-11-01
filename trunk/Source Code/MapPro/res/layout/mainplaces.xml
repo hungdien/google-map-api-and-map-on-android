@@ -34,12 +34,13 @@
 	    	android:id="@+id/currentlocation"></ImageView>
 		<TextView 
 			android:layout_width="wrap_content" 
-			android:gravity="left"
-			android:id="@+id/txtPosition" 
+			android:gravity="center"
+			android:id="@+id/txtPositionPlaces" 
 			android:layout_height="wrap_content" 
 			android:textColor="#0000FF"
 			android:textSize="12px"
-			android:text="Your current location here!!!" 
+			android:text="Loading..."
+			android:paddingRight="15dp" 
 			android:layout_weight="0.98"></TextView>
 	 </LinearLayout>
 </LinearLayout>
