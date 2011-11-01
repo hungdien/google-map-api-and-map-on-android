@@ -32,12 +32,12 @@ public final class R {
         public static final int button_view=0x7f050007;
         public static final int button_view1=0x7f050014;
         public static final int checkbox_placechose=0x7f050004;
-        public static final int checkbox_placenow=0x7f050002;
+        public static final int checkbox_placenow=0x7f050003;
         public static final int checkbox_placenow1=0x7f050017;
         public static final int currentlocation=0x7f05000f;
         public static final int editText_placechose=0x7f050000;
         public static final int editText_placechose1=0x7f050011;
-        public static final int editText_placenow=0x7f050003;
+        public static final int editText_placenow=0x7f050002;
         public static final int gridview=0x7f05000e;
         public static final int gvPlaces=0x7f050018;
         public static final int image=0x7f05000b;
@@ -53,7 +53,7 @@ public final class R {
         public static final int textView2=0x7f050001;
         public static final int textView3=0x7f050015;
         public static final int textView4=0x7f050012;
-        public static final int txtPosition=0x7f050019;
+        public static final int txtPositionPlaces=0x7f050019;
     }
     public static final class layout {
         public static final int inputaddress=0x7f030000;
