@@ -3,9 +3,17 @@
  */
 package com.mappro;
 
+import java.util.Locale;
+
+import com.mappro.supportedclass.GoogleDataReader;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +22,8 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * @author TUAN-NGUYEN
@@ -21,11 +31,16 @@ import android.widget.AdapterView.OnItemClickListener;
  */
 public class MapPlaces extends Activity {
 	 /** Called when the activity is first created. */
+	 Geocoder geocoder;
+	 TextView txtPosition;
+	 
 	 public void onCreate(Bundle savedInstanceState) {
 	     super.onCreate(savedInstanceState);
 	     setContentView(R.layout.mainplaces);
 	     
 	     GridView places = (GridView)findViewById(R.id.gvPlaces);
+	     txtPosition = (TextView)findViewById(R.id.txtPositionPlaces);
+	     txtPosition.setText("Loading...");
 	     places.setAdapter(new ImageAdapter(this));
 	     
 	     //Click item event
@@ -33,9 +48,17 @@ public class MapPlaces extends Activity {
 	    	  public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 	    		  Intent intent = new Intent(); 
 	    		  intent.setClass(MapPlaces.this, InputAddress.class);
+	    		  intent.putExtra("keyword", getKeywork(position));
+	    		  intent.putExtra("address", txtPosition.getText());
             	  startActivity(intent);
 	          }
 		});
+	     
+	     //Location initiation
+	     geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
+	     LocationManager mlocManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+	     LocationListener mlocListener = new GPSLocationListener();
+	     mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, mlocListener);
 	 }
 	 
 	 public class ImageAdapter extends BaseAdapter{
@@ -83,5 +106,53 @@ public class MapPlaces extends Activity {
 	             R.drawable.hospitalicon, R.drawable.universityicon,
 	             R.drawable.hotelicon,R.drawable.gasstation,
 	     };
+	 }
+	 
+	 public class GPSLocationListener implements LocationListener {
+	    	@Override
+	    	public void onLocationChanged(Location location)
+	    	{
+	    		GoogleDataReader reader = new  GoogleDataReader();
+	    		String address = reader.GetAddressFromLatLng(location.getLatitude(),location.getLongitude() 
+	    													,geocoder);
+	    		txtPosition.setText(address);
+	    	}
+
+	    	@Override
+	    	public void onProviderDisabled(String provider)
+	    	{
+	    	}
+	    	@Override
+	    	public void onProviderEnabled(String provider)
+	    	{
+	    	}
+
+	    	@Override
+	    	public void onStatusChanged(String provider, int status, Bundle extras)
+	    	{
+
+	    	}
+	    }/* End of Class GPSLocationListener */
+	 
+	 public String getKeywork(int position){
+		 String keywork = "";
+		 
+		 switch(position)
+		 {
+		 	case 0: keywork="atm";
+		 			break;
+		 	case 1: keywork="bus";
+		 			break;
+		 	case 2: keywork="hospital";
+		 			break;
+		 	case 3: keywork="university";
+		 			break;
+		 	case 4: keywork="hotel";
+		 			break;
+		 	case 5: keywork="gas station";
+		 			break;
+		 }
+		 
+		 return keywork;
 	 }
 }
