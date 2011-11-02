@@ -19,6 +19,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -27,10 +28,15 @@ import android.widget.Toast;
  */
 public class InputAddress extends Activity {
 	
-     String keyword;
      Geocoder geocoder;
      CheckBox checkbox_placenow;
      CheckBox checkbox_placechose;
+     TextView edit_placenow;
+    
+     String address;
+     String keywork;
+     double lat;
+     double lng;
      
 	 public void onCreate(Bundle savedInstanceState) {
 	     super.onCreate(savedInstanceState);
@@ -39,21 +45,27 @@ public class InputAddress extends Activity {
 	     final Button button_view = (Button)findViewById(R.id.button_view);
 	     checkbox_placenow = (CheckBox)findViewById(R.id.checkbox_placenow);
 	     checkbox_placechose = (CheckBox)findViewById(R.id.checkbox_placechose);
+	     edit_placenow = (TextView)findViewById(R.id.editText_placenow);
 	     
 	     /*Demo*/
-	     //geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
+	    // geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
 	     //GoogleDataReader reader = new GoogleDataReader();
 	     //CPoint point = new CPoint(); 
-	     //point = reader.GetLatLngFromAddress("2 hàm nghi, quận 1", geocoder);
+	    // point = reader.GetLatLngFromAddress("100 Lê Lai, quận 1", geocoder);
 	     
-	    // Toast.makeText(InputAddress.this, String.valueOf(point.lat), Toast.LENGTH_LONG).show();
+	     //Toast.makeText(InputAddress.this, String.valueOf(point.lat), Toast.LENGTH_LONG).show();
 	     /*End Demo*/
 	     
 	     //Get data from MapPlaces activity
 	     Bundle extras = getIntent().getExtras();
 	     if(extras !=null) {
-	    	 keyword = extras.getString("address");
-	    	 Toast.makeText(InputAddress.this, keyword, Toast.LENGTH_LONG).show();
+	    	 address = extras.getString("address");
+	    	 keywork = extras.getString("keyword");
+	    	 //current location
+	    	 lat = extras.getDouble("lat");
+	    	 lng = extras.getDouble("lng");
+	    	 
+	    	 setPlaceNow();
 	     }
 	     
 	     //
@@ -67,10 +79,12 @@ public class InputAddress extends Activity {
 				 if (((CheckBox) v).isChecked()) 
 				 {
 					 checkbox_placechose.setChecked(false);
+					 setPlaceNow();
 			     }
 				 else
 			     {
 					 checkbox_placechose.setChecked(true);
+					 
 			     }
 			}
 		});
@@ -87,6 +101,7 @@ public class InputAddress extends Activity {
 				 else
 			     {
 					 checkbox_placenow.setChecked(true);
+					 setPlaceNow();
 			     }
 			}
 		});
@@ -96,8 +111,20 @@ public class InputAddress extends Activity {
              public void onClick(View v) {
             	 Intent intent = new Intent();
             	 intent.setClass(InputAddress.this, LocationListDetail.class);
+            	 if(checkbox_placenow.isChecked())
+            	 {
+            		 intent.putExtra("lat",lat);
+            		 intent.putExtra("lng",lng);
+            		 intent.putExtra("keywork", keywork);
+            	 }
             	 startActivity(intent);
              }
          });
+	 }
+	 
+	 public void setPlaceNow()
+	 {
+		 if(checkbox_placenow.isChecked())
+			 edit_placenow.setText(address);
 	 }
 }

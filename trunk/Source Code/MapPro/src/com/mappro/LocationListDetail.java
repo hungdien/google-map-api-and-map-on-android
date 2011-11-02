@@ -18,13 +18,28 @@ public class LocationListDetail extends Activity {
 	    private LazyAdapter adapter;
 	    private ArrayList<PlaceModel> lstPlaceModel;
 	    
+	    private double lat;
+	    private double lng;
+	    private String keywork;
+	    
 	    @Override
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.locationdetail);
 	        
-	        GoogleDataReader dataReader = new GoogleDataReader();
-	        lstPlaceModel = dataReader.PlacesInfoReader("atm", 21.029505, 105.850566, 20);
+	        //Get data from InputAddress activity
+		     Bundle extras = getIntent().getExtras();
+		     if(extras !=null) {
+		    	 //current location
+		    	 lat = extras.getDouble("lat");
+		    	 lng = extras.getDouble("lng");
+		    	 keywork = extras.getString("keywork");
+		    	 
+		    	 GoogleDataReader dataReader = new GoogleDataReader();
+				 lstPlaceModel = dataReader.PlacesInfoReader(keywork, lat, lng, 20);
+		     }
+	        
+		    
 	        
 	        list=(ListView)findViewById(R.id.list);
 	        adapter=new LazyAdapter(this, lstPlaceModel);
