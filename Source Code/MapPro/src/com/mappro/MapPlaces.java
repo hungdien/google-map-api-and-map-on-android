@@ -33,6 +33,8 @@ public class MapPlaces extends Activity {
 	 /** Called when the activity is first created. */
 	 Geocoder geocoder;
 	 TextView txtPosition;
+	 double lat=0.0;
+	 double lng=0.0;
 	 
 	 public void onCreate(Bundle savedInstanceState) {
 	     super.onCreate(savedInstanceState);
@@ -50,6 +52,8 @@ public class MapPlaces extends Activity {
 	    		  intent.setClass(MapPlaces.this, InputAddress.class);
 	    		  intent.putExtra("keyword", getKeywork(position));
 	    		  intent.putExtra("address", txtPosition.getText());
+	    		  intent.putExtra("lat", lat);
+	    		  intent.putExtra("lng", lng);
             	  startActivity(intent);
 	          }
 		});
@@ -115,6 +119,9 @@ public class MapPlaces extends Activity {
 	    		GoogleDataReader reader = new  GoogleDataReader();
 	    		String address = reader.GetAddressFromLatLng(location.getLatitude(),location.getLongitude() 
 	    													,geocoder);
+	    		lat = location.getLatitude();
+	    		lng = location.getLongitude();
+	    		
 	    		txtPosition.setText(address);
 	    	}
 
