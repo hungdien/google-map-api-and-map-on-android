@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.mappro.locationlistview.*;
 import com.mappro.model.PlaceModel;
@@ -26,6 +27,7 @@ public class LocationListDetail extends Activity {
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.locationdetail);
+	        list=(ListView)findViewById(R.id.list);
 	        
 	        //Get data from InputAddress activity
 		     Bundle extras = getIntent().getExtras();
@@ -36,13 +38,13 @@ public class LocationListDetail extends Activity {
 		    	 keywork = extras.getString("keywork");
 		    	 
 		    	 GoogleDataReader dataReader = new GoogleDataReader();
-				 lstPlaceModel = dataReader.PlacesInfoReader(keywork, lat, lng, 20);
+				 lstPlaceModel = dataReader.PlacesInfoReader(keywork, lat, lng, 40);
 		     }
 	        
 		    
 	        
-	        list=(ListView)findViewById(R.id.list);
-	        adapter=new LazyAdapter(this, lstPlaceModel);
+	        Toast.makeText(LocationListDetail.this, keywork, Toast.LENGTH_LONG).show();
+	        adapter=new LazyAdapter(this, lstPlaceModel,keywork);
 	        list.setAdapter(adapter);
 	        
 	        Button b=(Button)findViewById(R.id.button1);

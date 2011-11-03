@@ -152,11 +152,11 @@ public class MapPlaces extends Activity {
 		 			break;
 		 	case 2: keywork="hospital";
 		 			break;
-		 	case 3: keywork="university";
+		 	case 3: keywork="school";
 		 			break;
 		 	case 4: keywork="hotel";
 		 			break;
-		 	case 5: keywork="gas station";
+		 	case 5: keywork="bookstore";
 		 			break;
 		 }
 		 

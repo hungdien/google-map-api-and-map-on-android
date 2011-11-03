@@ -3,6 +3,7 @@
  */
 package com.mappro;
 
+import java.util.List;
 import java.util.Locale;
 
 import com.mappro.model.CPoint;
@@ -17,6 +18,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
@@ -32,7 +34,9 @@ public class InputAddress extends Activity {
      CheckBox checkbox_placenow;
      CheckBox checkbox_placechose;
      TextView edit_placenow;
-    
+     RadioButton radiob_map;
+     RadioButton radiob_list;
+     
      String address;
      String keywork;
      double lat;
@@ -46,6 +50,8 @@ public class InputAddress extends Activity {
 	     checkbox_placenow = (CheckBox)findViewById(R.id.checkbox_placenow);
 	     checkbox_placechose = (CheckBox)findViewById(R.id.checkbox_placechose);
 	     edit_placenow = (TextView)findViewById(R.id.editText_placenow);
+	     radiob_map = (RadioButton)findViewById(R.id.radiob_map);
+	     radiob_list = (RadioButton)findViewById(R.id.radiob_list);
 	     
 	     /*Demo*/
 	    // geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
@@ -64,7 +70,7 @@ public class InputAddress extends Activity {
 	    	 //current location
 	    	 lat = extras.getDouble("lat");
 	    	 lng = extras.getDouble("lng");
-	    	 
+	    	 Toast.makeText(this, keywork, Toast.LENGTH_LONG);
 	    	 setPlaceNow();
 	     }
 	     
@@ -105,6 +111,31 @@ public class InputAddress extends Activity {
 			     }
 			}
 		});
+	     
+	     //RadionButton map
+	     radiob_list.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				if (((RadioButton) v).isChecked())
+				{
+					radiob_map.setChecked(false);
+				}
+			}
+		});
+	     
+	     radiob_map.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					if (((RadioButton) v).isChecked())
+					{
+						radiob_list.setChecked(false);
+					}
+				}
+			});
 	     
 	     //Click event on button_view
 	     button_view.setOnClickListener(new View.OnClickListener() {
