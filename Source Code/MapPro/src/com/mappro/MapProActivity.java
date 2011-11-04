@@ -53,7 +53,10 @@ public class MapProActivity extends Activity {
 	              
 	              if(position==1)
 	              {
+	            	  intent.setClass(MapProActivity.this, MapDetail.class);
+	            	  startActivity(intent);
 	            	  return;
+
 	              }
 	              
 	              if(position==2)
