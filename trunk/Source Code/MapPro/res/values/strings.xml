@@ -2,4 +2,9 @@
 <resources>
     <string name="hello">Hello World, MapProActivity!</string>
     <string name="app_name">MapPro</string>
+        <string name="place">Địa điểm</string> 
+      <string name="street">Dẫn đường</string> 
+      <string name="help_text">This is the help file for this application. 
+            \n\nItem 1\n<i>Item 2 (in italics) </i>\nItem 3</string> 
+      <string name="settings">Settings</string>
 </resources>

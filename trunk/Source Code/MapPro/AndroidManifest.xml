@@ -4,8 +4,10 @@
       android:versionCode="1"
       android:versionName="1.0">
     <uses-sdk android:minSdkVersion="4" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
 
     <application android:icon="@drawable/icon" android:label="@string/app_name">
+        	<uses-library android:name="com.google.android.maps" />
         <activity android:name=".MapProActivity"
                   android:label="@string/app_name">
             <intent-filter>
@@ -17,6 +19,12 @@
 		<activity android:name=".InputAddress"></activity>
 		<activity android:name=".MapDirection"></activity>
 		<activity android:name=".LocationListDetail"></activity>
+		<activity android:name=".MapDetail"></activity>
+		<activity android:name=".MapDetail1"></activity>
+		<activity android:name=".Mapme"></activity>
+		<activity android:name=".Help" android:label="Help" 
+		android:theme="@android:style/Theme.Dialog"> </activity> 
+		<activity android:name=".Prefs" android:label="Prefs"></activity> 
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>    
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
