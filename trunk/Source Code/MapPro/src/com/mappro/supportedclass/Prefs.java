@@ -1,5 +1,6 @@
 package com.mappro.supportedclass;
 
+
 import com.mappro.R;
 
 import android.content.Context;
@@ -9,6 +10,8 @@ import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.util.Log;
+
+
 
 public class Prefs extends PreferenceActivity implements OnSharedPreferenceChangeListener {
 	

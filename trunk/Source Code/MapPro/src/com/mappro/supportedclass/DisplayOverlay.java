@@ -1,6 +1,5 @@
 package com.mappro.supportedclass;
 
-
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
@@ -25,8 +24,8 @@ public class DisplayOverlay extends Overlay {
 		super.draw(canvas, mapview, shadow);
 		if(showData){
 			paint = new Paint();
-			//paint.setAntiAlias(true);
-			//paint.setARGB(80,255,255,255);
+			paint.setAntiAlias(true);
+			paint.setARGB(80,255,255,255);
 			canvas.drawRect(0,0,350,33,paint);
 			paint.setTextSize(11);
 			paint.setARGB(180, 0, 0, 0);

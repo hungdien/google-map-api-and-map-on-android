@@ -60,6 +60,7 @@ public final class R {
         public static final int list=0x7f07000a;
         public static final int main_text_place=0x7f070011;
         public static final int mapv=0x7f070019;
+        public static final int mv2=0x7f070020;
         public static final int presentLocation_button=0x7f07001c;
         public static final int radiob_list=0x7f070007;
         public static final int radiob_list1=0x7f070017;
@@ -83,14 +84,33 @@ public final class R {
         public static final int maindirection=0x7f030005;
         public static final int mainmap=0x7f030006;
         public static final int mainplaces=0x7f030007;
+        public static final int mapme=0x7f030008;
     }
     public static final class string {
+        public static final int apiKeyCastor=0x7f060015;
+        /**  Place the apiKey string here, to be read in both mapme.xml and showthemap.xml 
+         */
+        public static final int apiKeyM33=0x7f060013;
+        public static final int apiKeyM81=0x7f060014;
         public static final int app_name=0x7f060001;
+        public static final int compass_summary=0x7f060010;
+        public static final int compass_title=0x7f06000f;
+        public static final int goLabel=0x7f060005;
+        public static final int gpsPrefs_summary=0x7f060012;
+        public static final int gpsPrefs_title=0x7f060011;
         public static final int hello=0x7f060000;
-        public static final int help_text=0x7f060004;
+        public static final int help_text=0x7f06000d;
+        public static final int help_title=0x7f06000c;
+        public static final int latLabel=0x7f060006;
+        public static final int locLabel=0x7f060004;
+        public static final int longLabel=0x7f060007;
+        public static final int mapLabel=0x7f06000a;
         public static final int place=0x7f060002;
-        public static final int settings=0x7f060005;
+        public static final int quit=0x7f06000b;
+        public static final int satLabel=0x7f060009;
+        public static final int settings=0x7f06000e;
         public static final int street=0x7f060003;
+        public static final int trackLabel=0x7f060008;
     }
     public static final class xml {
         public static final int prefs=0x7f040000;

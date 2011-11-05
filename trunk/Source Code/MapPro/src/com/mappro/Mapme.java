@@ -1,5 +1,6 @@
 package com.mappro;
 
+
 import java.util.List;
 
 import android.content.Context;
@@ -12,14 +13,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Window;
-
+import android.widget.Toast;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
-import com.mappro.R;
 import com.mappro.supportedclass.DisplayOverlay;
 import com.mappro.supportedclass.MyMyLocationOverlay;
 import com.mappro.supportedclass.Prefs;
@@ -28,8 +28,8 @@ public class Mapme extends MapActivity implements LocationListener {
 	
 	private static double lat;
 	private static double lon;
-	MapController mapControl;
-	MapView map;
+	private MapController mapControl;
+	private MapView mapView;
 	LocationManager locman;
     Location loc;
     String provider = LocationManager.GPS_PROVIDER;
@@ -58,7 +58,7 @@ public class Mapme extends MapActivity implements LocationListener {
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);  // Suppress title bar to give more space
-        setContentView(R.layout.mainmap); 
+        setContentView(R.layout.mapme); 
         
         updateGPSprefs();
         
@@ -74,7 +74,7 @@ public class Mapme extends MapActivity implements LocationListener {
 				 	break;
 				 	case GpsStatus.GPS_EVENT_FIRST_FIX:
 				 		// First Fix...
-				 		//Toast.makeText(MapMe.this, "GPS has First fix", Toast.LENGTH_LONG).show();
+				 		Toast.makeText(Mapme.this, "GPS has First fix", Toast.LENGTH_LONG).show();
 				 	break;
 				 	case GpsStatus.GPS_EVENT_STOPPED:
 				 		// Stopped...
@@ -95,23 +95,23 @@ public class Mapme extends MapActivity implements LocationListener {
 	    Log.i(TAG, locman.toString());
 	    
 	    // Add map controller with zoom controls
-        map = (MapView) findViewById(R.id.mapv);
-        map.setSatellite(false);
-        map.setTraffic(false);
-        map.setBuiltInZoomControls(true);   // Set android:clickable=true in main.xml
-        int maxZoom = map.getMaxZoomLevel();
+        mapView = (MapView) findViewById(R.id.mv2);
+        mapView.setSatellite(false);
+        mapView.setTraffic(false);
+        mapView.setBuiltInZoomControls(true);   // Set android:clickable=true in main.xml
+        int maxZoom = mapView.getMaxZoomLevel();
         int initZoom = (int)(0.95*(double)maxZoom);
-        mapControl = map.getController();
+        mapControl = mapView.getController();
         mapControl.setZoom(initZoom);
         
         // Set up compass and dot for present location map overlay
-        List<Overlay> overlays = map.getOverlays();
-        myLocationOverlay = new MyMyLocationOverlay(this, map);
+        List<Overlay> overlays = mapView.getOverlays();
+        myLocationOverlay = new MyMyLocationOverlay(this, mapView);
         overlays.add(myLocationOverlay);
         
-         //Set up overlay for data display
-       displayOverlay = new DisplayOverlay();
-        mapOverlays = map.getOverlays();
+        // Set up overlay for data display
+        displayOverlay = new DisplayOverlay();
+        mapOverlays = mapView.getOverlays();
         mapOverlays.add(displayOverlay);
 	}
 	
@@ -123,10 +123,10 @@ public class Mapme extends MapActivity implements LocationListener {
 	
 	public boolean onKeyDown(int keyCode, KeyEvent e){
 		if(keyCode == KeyEvent.KEYCODE_S){
-			map.setSatellite(!map.isSatellite());
+			mapView.setSatellite(!mapView.isSatellite());
 			return true;
 		} else if(keyCode == KeyEvent.KEYCODE_T){
-			map.setTraffic(!map.isTraffic());
+			mapView.setTraffic(!mapView.isTraffic());
 			centerOnLocation();  // To ensure change displays immediately
 		}
 		return(super.onKeyDown(keyCode, e));
@@ -237,12 +237,6 @@ public class Mapme extends MapActivity implements LocationListener {
         myLocationOverlay.enableMyLocation();
         Log.i(TAG,"******  MapMe restarting: Resuming GPS update requests."+
 				" GPSUpdateInterval="+GPSupdateInterval+"ms GPSmoveInterval="+GPSmoveInterval+" m");
-        
-        
-        	//super.onPause(); 
-        
-        //myLocationOverlay.disableCompass(); 
-        //myLocationOverlay.disableMyLocation(); locman.removeUpdates(this); 
 	}
 	
 	// Method to assign GPS prefs

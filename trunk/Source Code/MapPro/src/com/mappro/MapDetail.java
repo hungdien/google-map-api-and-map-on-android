@@ -18,6 +18,7 @@ import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
+import com.mappro.supportedclass.Help;
 import com.mappro.supportedclass.Prefs;
 import com.mappro.supportedclass.CustomPinpoint;
 
@@ -101,7 +102,7 @@ public class MapDetail extends MapActivity implements OnClickListener {
         //d=getResources().getDrawable(R.drawable.startpoint);
         
         d=getResources().getDrawable(R.drawable.startpoint);
-        overlayList = map.getOverlays();
+        
         
       //overlay click point
         t=new Touchy();
@@ -342,7 +343,7 @@ public class MapDetail extends MapActivity implements OnClickListener {
 				return true;
 			case(Menu.FIRST+2):
 				// Actions for settings page
-				Intent k = new Intent(this, Prefs.class);
+				Intent k = new Intent(this,Prefs.class);
 				startActivity(k);
 				return true;
 		

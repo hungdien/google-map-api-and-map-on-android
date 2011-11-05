@@ -6,14 +6,14 @@
     android:weightSum="1">
 	
     <RelativeLayout 
-    android:layout_width="fill_parent" android:layout_height="343dp">
+    android:layout_width="fill_parent" android:layout_height="269dp">
     			
      			<com.google.android.maps.MapView   
      			
 	     			 android:id="@+id/mapv"
 	                 android:layout_width="fill_parent"
 	                 android:layout_height="380px"
-	                 android:apiKey="0Erct0VhQ1pDVF0Hb1hCaTPnBG1MhmaSqaNvjdg"
+	                 android:apiKey="0Erct0VhQ1pB_2xMbLYDaWUwXnPZIHJoUek2GAQ"
 	                 android:enabled="true"
 	                 android:clickable="true"
          		 android:layout_alignParentTop="true" android:layout_alignParentBottom="true"/>
