@@ -125,7 +125,7 @@ public class GoogleDataReader {
 	  	    		AddressLine +=  add.getAddressLine(i)+ ", ";
 	  	      }
 	  	    } catch (IOException e) {
-	  	    	AddressLine = "You're not on the street now!"; 
+	  	    	AddressLine = "Your address is not availablen now!"; 
 	  	    }
 		 
 		return AddressLine;
