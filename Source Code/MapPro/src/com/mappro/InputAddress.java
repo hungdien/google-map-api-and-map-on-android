@@ -3,11 +3,11 @@
  */
 package com.mappro;
 
-import java.util.List;
+
 import java.util.Locale;
 
 import com.mappro.model.CPoint;
-import com.mappro.supportedclass.*;
+import com.mappro.supportedclass.GoogleDataReader;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -17,10 +17,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +31,7 @@ public class InputAddress extends Activity {
      CheckBox checkbox_placenow;
      CheckBox checkbox_placechose;
      TextView edit_placenow;
+     TextView edit_placechose;
      RadioButton radiob_map;
      RadioButton radiob_list;
      
@@ -50,11 +48,12 @@ public class InputAddress extends Activity {
 	     checkbox_placenow = (CheckBox)findViewById(R.id.checkbox_placenow);
 	     checkbox_placechose = (CheckBox)findViewById(R.id.checkbox_placechose);
 	     edit_placenow = (TextView)findViewById(R.id.editText_placenow);
+	     edit_placechose = (TextView)findViewById(R.id.editText_placechose);
 	     radiob_map = (RadioButton)findViewById(R.id.radiob_map);
 	     radiob_list = (RadioButton)findViewById(R.id.radiob_list);
 	     
 	     /*Demo*/
-	    // geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
+	     geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
 	     //GoogleDataReader reader = new GoogleDataReader();
 	     //CPoint point = new CPoint(); 
 	    // point = reader.GetLatLngFromAddress("100 Lê Lai, quận 1", geocoder);
@@ -140,15 +139,51 @@ public class InputAddress extends Activity {
 	     //Click event on button_view
 	     button_view.setOnClickListener(new View.OnClickListener() {
              public void onClick(View v) {
+            	 
             	 Intent intent = new Intent();
-            	 intent.setClass(InputAddress.this, LocationListDetail.class);
             	 if(checkbox_placenow.isChecked())
             	 {
-            		 intent.putExtra("lat",lat);
-            		 intent.putExtra("lng",lng);
-            		 intent.putExtra("keywork", keywork);
+            		 if(radiob_list.isChecked()){
+            			 intent.setClass(InputAddress.this, LocationListDetail.class);
+                    	 
+                		 intent.putExtra("lat",lat);
+                		 intent.putExtra("lng",lng);
+                		 intent.putExtra("keywork", keywork);
+                		 
+                		 startActivity(intent);
+                		 return;
+            		 }
+            		 else{
+            			 //Display places on map with current address 
+            		 }
             	 }
-            	 startActivity(intent);
+            	 else
+            	 {
+            		 if(radiob_list.isChecked()){
+            			 
+            			 //
+            			 //Convert address to point
+     		    	     CPoint point = new CPoint();
+     		    	     GoogleDataReader reader = new GoogleDataReader();
+     		    	     point = reader.GetLatLngFromAddress(edit_placechose.getText().toString(),
+     		    	    		 							 geocoder);
+     		    	     
+     		    	     //send data
+     		    	    intent.setClass(InputAddress.this, LocationListDetail.class);
+     		    	    intent.putExtra("lat",point.lat);
+     		    	    intent.putExtra("lng",point.lng);
+     		    	    intent.putExtra("keywork", keywork);
+     		    	    
+     		    	    Toast.makeText(InputAddress.this,edit_placechose.getText()+";"+String.valueOf(point.lat)+";"+String.valueOf(point.lng), Toast.LENGTH_LONG).show();
+     		    	    
+     		    	    startActivity(intent);
+     		    	    return;
+            		 }
+            		 else
+            		 {
+            			 //Display places on map with entered address
+            		 }
+            	 }
              }
          });
 	 }
@@ -158,4 +193,6 @@ public class InputAddress extends Activity {
 		 if(checkbox_placenow.isChecked())
 			 edit_placenow.setText(address);
 	 }
+	 
+	 
 }

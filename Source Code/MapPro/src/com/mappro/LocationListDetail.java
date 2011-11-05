@@ -1,8 +1,10 @@
 package com.mappro;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import android.app.Activity;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -11,6 +13,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.mappro.locationlistview.*;
+import com.mappro.model.CPoint;
 import com.mappro.model.PlaceModel;
 import com.mappro.supportedclass.GoogleDataReader;
 
@@ -32,18 +35,16 @@ public class LocationListDetail extends Activity {
 	        //Get data from InputAddress activity
 		     Bundle extras = getIntent().getExtras();
 		     if(extras !=null) {
-		    	 //current location
-		    	 lat = extras.getDouble("lat");
-		    	 lng = extras.getDouble("lng");
-		    	 keywork = extras.getString("keywork");
-		    	 
 		    	 GoogleDataReader dataReader = new GoogleDataReader();
-				 lstPlaceModel = dataReader.PlacesInfoReader(keywork, lat, lng, 40);
+		    	 keywork = extras.getString("keywork");
+		         //current location
+			     lat = extras.getDouble("lat");
+			     lng = extras.getDouble("lng");
+			    	 
+			     //get info from google map by given key work
+			     lstPlaceModel = dataReader.PlacesInfoReader(keywork, lat, lng, 10); 
 		     }
 	        
-		    
-	        
-	        Toast.makeText(LocationListDetail.this, keywork, Toast.LENGTH_LONG).show();
 	        adapter=new LazyAdapter(this, lstPlaceModel,keywork);
 	        list.setAdapter(adapter);
 	        

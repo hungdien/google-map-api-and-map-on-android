@@ -108,7 +108,7 @@ public class MapPlaces extends Activity {
 	     private Integer[] mThumbIds = {
 	             R.drawable.atmicon1, R.drawable.busicon,
 	             R.drawable.hospitalicon, R.drawable.universityicon,
-	             R.drawable.hotelicon,R.drawable.gasstation,
+	             R.drawable.hotelicon,R.drawable.book,
 	     };
 	 }
 	 
