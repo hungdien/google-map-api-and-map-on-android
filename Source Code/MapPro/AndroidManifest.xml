@@ -6,7 +6,7 @@
     <uses-sdk android:minSdkVersion="4" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
 
-    <application android:icon="@drawable/icon" android:label="@string/app_name">
+    <application android:icon="@drawable/icon" android:label="@string/app_name" android:allowClearUserData="true">
         	<uses-library android:name="com.google.android.maps" />
         <activity android:name=".MapProActivity"
                   android:label="@string/app_name">
@@ -20,11 +20,12 @@
 		<activity android:name=".MapDirection"></activity>
 		<activity android:name=".LocationListDetail"></activity>
 		<activity android:name=".MapDetail"></activity>
-		<activity android:name=".MapDetail1"></activity>
-		<activity android:name=".Mapme"></activity>
-		<activity android:name=".Help" android:label="Help" 
+		<activity android:name=".Mapme"></activity> 
+		<activity android:name=".supportedclass..Help" android:label="Help" 
+		
 		android:theme="@android:style/Theme.Dialog"> </activity> 
-		<activity android:name=".Prefs" android:label="Prefs"></activity> 
+		
+		<activity android:name=".supportedclass.Prefs" android:label="prefs"></activity> 
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>    
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
