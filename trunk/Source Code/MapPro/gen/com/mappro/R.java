@@ -25,20 +25,19 @@ public final class R {
         public static final int busicon=0x7f020007;
         public static final int danduong=0x7f020008;
         public static final int diadiem1=0x7f020009;
-        public static final int gasstation=0x7f02000a;
-        public static final int gioithieu1=0x7f02000b;
-        public static final int hospital_nurse=0x7f02000c;
-        public static final int hospitalicon=0x7f02000d;
-        public static final int hotelicon=0x7f02000e;
-        public static final int ic_menu_close_clear_cancel=0x7f02000f;
-        public static final int ic_menu_help=0x7f020010;
-        public static final int ic_menu_preferences=0x7f020011;
-        public static final int icon=0x7f020012;
-        public static final int restaurant=0x7f020013;
-        public static final int school=0x7f020014;
-        public static final int startpoint=0x7f020015;
-        public static final int stub=0x7f020016;
-        public static final int universityicon=0x7f020017;
+        public static final int gioithieu1=0x7f02000a;
+        public static final int hospital_nurse=0x7f02000b;
+        public static final int hospitalicon=0x7f02000c;
+        public static final int hotelicon=0x7f02000d;
+        public static final int ic_menu_close_clear_cancel=0x7f02000e;
+        public static final int ic_menu_help=0x7f02000f;
+        public static final int ic_menu_preferences=0x7f020010;
+        public static final int icon=0x7f020011;
+        public static final int restaurant=0x7f020012;
+        public static final int school=0x7f020013;
+        public static final int startpoint=0x7f020014;
+        public static final int stub=0x7f020015;
+        public static final int universityicon=0x7f020016;
     }
     public static final class id {
         public static final int button1=0x7f07000b;
