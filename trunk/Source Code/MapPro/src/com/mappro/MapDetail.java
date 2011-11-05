@@ -79,7 +79,7 @@ public class MapDetail extends MapActivity implements OnClickListener {
 	     setContentView(R.layout.mainmap);
 	    
 	 	
-	 // Add Click listeners for all buttons
+	   // Add Click listeners for all buttons
         View firstButton = findViewById(R.id.geocode_button);
         firstButton.setOnClickListener(this);
         View secondButton = findViewById(R.id.presentLocation_button);
@@ -216,36 +216,6 @@ public class MapDetail extends MapActivity implements OnClickListener {
 			t=new Touchy();
 	        overlayList = map.getOverlays();
 	        overlayList.add(t);
-			//try{
-				/*List<Address> results = gcoder.getFromLocationName(placeName,numberOptions);
-				//Iterator<Address> locations = results.iterator();
-				String raw = "\nRaw String:\n";
-				String country;
-				int opCount = 0;
-				//while(locations.hasNext()){
-					//Address location = locations.next();
-					lat1 = location.getLatitude();
-					lon1 = location.getLongitude();
-					country = location.getCountryName();
-					if(country == null) {
-						country = "";
-					} else {
-						country =  ", "+country;
-					}
-					raw += location+"\n";
-					optionArray[opCount] = location.getAddressLine(0)+", "+location.getAddressLine(1)
-						+country+"\n";
-					opCount ++;
-				//}
-				Log.i("Location-List", raw);
-				Log.i("Location-List","\nOptions:\n");
-				for(int i=0; i<opCount; i++){
-					Log.i("Location-List","("+(i+1)+") "+optionArray[i]);*/
-				//}
-			//	
-			//} catch (IOException e){
-			//	Log.e("Geocoder", "I/O Failure; is network available?",e);
-			//}
 			try {
 		        
 			       List<Address> addresses = gcoder.getFromLocationName(placeName, 1);
