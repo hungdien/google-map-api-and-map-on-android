@@ -10,6 +10,7 @@ import com.mappro.model.CPoint;
 import com.mappro.supportedclass.GoogleDataReader;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -17,8 +18,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -30,8 +31,8 @@ public class InputAddress extends Activity {
      Geocoder geocoder;
      CheckBox checkbox_placenow;
      CheckBox checkbox_placechose;
-     TextView edit_placenow;
-     TextView edit_placechose;
+     EditText edit_placenow;
+     EditText edit_placechose;
      RadioButton radiob_map;
      RadioButton radiob_list;
      
@@ -44,22 +45,17 @@ public class InputAddress extends Activity {
 	     super.onCreate(savedInstanceState);
 	     setContentView(R.layout.inputaddress);
 	     
+	     //Initialize controls
 	     final Button button_view = (Button)findViewById(R.id.button_view);
 	     checkbox_placenow = (CheckBox)findViewById(R.id.checkbox_placenow);
 	     checkbox_placechose = (CheckBox)findViewById(R.id.checkbox_placechose);
-	     edit_placenow = (TextView)findViewById(R.id.editText_placenow);
-	     edit_placechose = (TextView)findViewById(R.id.editText_placechose);
+	     edit_placenow = (EditText)findViewById(R.id.editText_placenow);
+	     edit_placechose = (EditText)findViewById(R.id.editText_placechose);
 	     radiob_map = (RadioButton)findViewById(R.id.radiob_map);
 	     radiob_list = (RadioButton)findViewById(R.id.radiob_list);
 	     
-	     /*Demo*/
-	     geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
-	     //GoogleDataReader reader = new GoogleDataReader();
-	     //CPoint point = new CPoint(); 
-	    // point = reader.GetLatLngFromAddress("100 Lê Lai, quận 1", geocoder);
 	     
-	     //Toast.makeText(InputAddress.this, String.valueOf(point.lat), Toast.LENGTH_LONG).show();
-	     /*End Demo*/
+	     geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
 	     
 	     //Get data from MapPlaces activity
 	     Bundle extras = getIntent().getExtras();
@@ -141,11 +137,15 @@ public class InputAddress extends Activity {
              public void onClick(View v) {
             	 
             	 Intent intent = new Intent();
+            	 
+            	 //If user choose current address
             	 if(checkbox_placenow.isChecked())
             	 {
+            		 //Display result by list
             		 if(radiob_list.isChecked()){
             			 intent.setClass(InputAddress.this, LocationListDetail.class);
                     	 
+            			 //attach data
                 		 intent.putExtra("lat",lat);
                 		 intent.putExtra("lng",lng);
                 		 intent.putExtra("keywork", keywork);
@@ -154,34 +154,53 @@ public class InputAddress extends Activity {
                 		 return;
             		 }
             		 else{
-            			 //Display places on map with current address 
+            			 
+            			 intent.setClass(InputAddress.this, LocationMapDetail.class);
+            			 intent.putExtra("lat",lat);
+                		 intent.putExtra("lng",lng);
+                		 intent.putExtra("keywork", keywork);
+                		 
+                		 startActivity(intent);
+                		 return; 
             		 }
             	 }
-            	 else
+            	 else //users entered their own address
             	 {
+            		 if ((edit_placechose.getText().toString().equals("")))
+            		 {
+            				 new AlertDialog.Builder(InputAddress.this).setTitle("Thông báo" )
+            				 .setMessage("Vui lòng nhập vào địa chỉ.")
+            				 .setPositiveButton("OK", null).show();
+            				 return;
+            		 }
+            		 //
+        			 //Convert address to point
+            		 //
+ 		    	     CPoint point = new CPoint();
+ 		    	     GoogleDataReader reader = new GoogleDataReader();
+ 		    	     point = reader.GetLatLngFromAddress(edit_placechose.getText().toString(),
+ 		    	    		 							 geocoder);
+ 		    	     
             		 if(radiob_list.isChecked()){
-            			 
-            			 //
-            			 //Convert address to point
-     		    	     CPoint point = new CPoint();
-     		    	     GoogleDataReader reader = new GoogleDataReader();
-     		    	     point = reader.GetLatLngFromAddress(edit_placechose.getText().toString(),
-     		    	    		 							 geocoder);
-     		    	     
-     		    	     //send data
+     		    	    //attach data
      		    	    intent.setClass(InputAddress.this, LocationListDetail.class);
      		    	    intent.putExtra("lat",point.lat);
      		    	    intent.putExtra("lng",point.lng);
      		    	    intent.putExtra("keywork", keywork);
-     		    	    
-     		    	    Toast.makeText(InputAddress.this,edit_placechose.getText()+";"+String.valueOf(point.lat)+";"+String.valueOf(point.lng), Toast.LENGTH_LONG).show();
      		    	    
      		    	    startActivity(intent);
      		    	    return;
             		 }
             		 else
             		 {
-            			 //Display places on map with entered address
+            			//Display places on map with entered address
+      		    	    intent.setClass(InputAddress.this, LocationMapDetail.class);
+      		    	    intent.putExtra("lat",point.lat);
+      		    	    intent.putExtra("lng",point.lng);
+      		    	    intent.putExtra("keywork", keywork);
+      		    	    
+      		    	    startActivity(intent);
+      		    	    return;
             		 }
             	 }
              }

@@ -24,6 +24,7 @@ public class LocationListDetail extends Activity {
 	    
 	    private double lat;
 	    private double lng;
+	    //To determine what kind of place will be searched (atm, school, bookstore...)
 	    private String keywork;
 	    
 	    @Override
@@ -32,11 +33,12 @@ public class LocationListDetail extends Activity {
 	        setContentView(R.layout.locationdetail);
 	        list=(ListView)findViewById(R.id.list);
 	        
-	        //Get data from InputAddress activity
+	         //Get data from InputAddress activity
 		     Bundle extras = getIntent().getExtras();
 		     if(extras !=null) {
 		    	 GoogleDataReader dataReader = new GoogleDataReader();
 		    	 keywork = extras.getString("keywork");
+		    	 
 		         //current location
 			     lat = extras.getDouble("lat");
 			     lng = extras.getDouble("lng");
