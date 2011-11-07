@@ -2,7 +2,7 @@ package com.mappro.model;
 
 public class PlaceModel {
 	
-	public PlaceModel(String lat, String lng, String name, String address) {
+	public PlaceModel(double lat, double lng, String name, String address) {
 		this.lat = lat;
 		this.lng = lng;
 		this.setName(name);
@@ -10,25 +10,25 @@ public class PlaceModel {
 	}
 
 	public PlaceModel() {
-		this.lat = "";
-		this.lng = "";
+		this.lat = 0.0;
+		this.lng = 0.0;
 		this.address = "";
 		this.name = "";
 	}
 	
-	public String getLat() {
+	public double getLat() {
 		return lat;
 	}
 
-	public void setLat(String lat) {
+	public void setLat(double lat) {
 		this.lat = lat;
 	}
 
-	public String getLng() {
+	public double getLng() {
 		return lng;
 	}
 
-	public void setLng(String lng) {
+	public void setLng(double lng) {
 		this.lng = lng;
 	}
 
@@ -48,8 +48,8 @@ public class PlaceModel {
 		this.name = name;
 	}
 
-	private String lat;
-	private String lng;
+	private double lat;
+	private double lng;
 	private String name;
 	private String address;
 }
