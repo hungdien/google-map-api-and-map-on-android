@@ -44,32 +44,32 @@ import android.widget.Toast;
 
 
 public class MapDetail extends MapActivity implements OnClickListener {
-	MapView map; 
-	Drawable d,d2;
+	private MapView map; 
+	private Drawable d,d2;
 	    
-	double lat ; // Temporary test values for lat/long 
-    double lon  ; 
+	private double lat ; // Temporary test values for lat/long 
+	private double lon  ; 
     private int latE6; 
     private int lonE6; 
     
-    int las;
-	int los;
+    private int las;
+    private int los;
     
-    GeoPoint gp; 
-    GeoPoint touchedPoint;
+    private GeoPoint gp; 
+    private GeoPoint touchedPoint;
     
-    double lat1;
- 	double lon1;
+    private double lat1;
+    private double lon1;
  	
- 	MapController controller;
- 	List<Overlay> overlayList;
- 	int i;
+    private MapController controller;
+    private List<Overlay> overlayList;
+    private int i;
  	
- 	long start;
-    long stop;
+    private long start;
+    private long stop;
     
-    int x,y;
-    Touchy t;
+    private int x,y;
+    private Touchy t;
    
  	
 
