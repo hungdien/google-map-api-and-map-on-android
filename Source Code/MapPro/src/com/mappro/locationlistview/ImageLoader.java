@@ -1,4 +1,4 @@
-package com.mappro.locationlistview;
+package com.mappro.drivingdirectionlist;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -34,7 +34,7 @@ public class ImageLoader {
         fileCache=new FileCache(context);
     }
     
-    final int stub_id= R.drawable.atmicon4;
+    final int stub_id= R.drawable.stub;
     public void DisplayImage(String url, Activity activity, ImageView imageView)
     {
         imageViews.put(imageView, url);
