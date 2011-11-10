@@ -8,7 +8,7 @@
     <EditText 
     	android:layout_height="wrap_content" 
     	android:layout_width="280dp" 
-    	android:id="@+id/editText_placechose1" 
+    	android:id="@+id/editTextPlaceB" 
     	android:layout_below="@+id/textView4" 
     	android:layout_alignLeft="@+id/textView4" 
     	android:layout_marginTop="20dp"
@@ -19,11 +19,11 @@
 		android:textColor="#FF8C00"
 		android:layout_height="wrap_content" 
 		android:layout_width="wrap_content" 
-		android:layout_below="@+id/editText_placechose1" 
-		android:layout_alignLeft="@+id/editText_placechose1" 
+		android:layout_below="@+id/editTextPlaceB" 
+		android:layout_alignLeft="@+id/editTextPlaceB" 
 		android:layout_marginTop="20dp" android:checked="true"></RadioButton>
 	<Button 
-		android:id="@+id/button_view1" 
+		android:id="@+id/btnViewDirection" 
 		android:textColor="@android:color/white" 
 		android:layout_height="50dp" 
 		android:text="Xem" 
@@ -41,8 +41,8 @@
 		android:layout_height="wrap_content" 
 		android:textSize="20dp" 
 		android:layout_width="wrap_content" 
-		android:layout_below="@+id/editText_placenow" 
-		android:layout_alignLeft="@+id/editText_placenow" 
+		android:layout_below="@+id/editTextPlaceA" 
+		android:layout_alignLeft="@+id/editTextPlaceA" 
 		android:layout_marginTop="20dp"
 	></TextView>
 	<TextView 
@@ -58,7 +58,7 @@
 	<EditText
 		android:layout_height="wrap_content" 
 		android:layout_width="280dp" 
-		android:id="@+id/editText_placenow" 
+		android:id="@+id/editTextPlaceA" 
 		android:layout_below="@+id/textView3" 
 		android:layout_alignLeft="@+id/textView3" 
 		android:layout_marginTop="20dp"></EditText>
@@ -69,14 +69,14 @@
 		android:layout_width="wrap_content" 
 		android:checked="false" 
 		android:id="@+id/radiob_list1" 
-		android:layout_above="@+id/button_view1" 
+		android:layout_above="@+id/btnViewDirection" 
 		android:layout_alignRight="@+id/textView3"></RadioButton>
 	<CheckBox 
 		android:layout_height="wrap_content" 
 		android:checked="true" 
 		android:layout_width="wrap_content" 
 		android:id="@+id/checkbox_placenow1" 
-		android:layout_above="@+id/editText_placenow" 
+		android:layout_above="@+id/editTextPlaceA" 
 		android:layout_alignRight="@+id/textView3" 
 		android:layout_marginRight="22dp"></CheckBox>
 </RelativeLayout>
