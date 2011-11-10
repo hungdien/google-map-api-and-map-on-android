@@ -1,7 +1,10 @@
 package com.mappro.supportedclass;
 
+import android.app.Activity;
 import android.location.Address;
 import android.location.Geocoder;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.maps.GeoPoint;
 import com.mappro.model.*;
@@ -10,6 +13,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,7 +74,7 @@ public class GoogleDataReader {
     				//Get ATM name
     				String name = doc.getElementsByTagName("Placemark")
 						    		 .item(i).getChildNodes().item(0)
-						    		 .getFirstChild().getNodeValue();;
+						    		 .getFirstChild().getNodeValue();
     				//Get the address of ATM
     				String address = doc.getElementsByTagName("Placemark")
     								    .item(i).getChildNodes().item(2)
@@ -223,5 +227,72 @@ public class GoogleDataReader {
 	  	    	
 	  	    }
 		return point;
+	}
+
+	//Get driving direction
+	public ArrayList<DrivingDirectionModel> DrivingDirectionReader(String source, String destination)
+	{
+		 ArrayList<DrivingDirectionModel> lstDrivingDirection = new ArrayList<DrivingDirectionModel>();
+	     String a=URLEncoder.encode(source);
+	     String b=URLEncoder.encode(destination);
+	     
+	     // connect to map web service 
+	     StringBuilder urlString = new StringBuilder(); 
+	     urlString.append("http://maps.google.com/maps?saddr=");
+	     //For vietnamese: hl=vi
+	     urlString.append(a+"&daddr="+b+"&hl=vi&output=kml");
+	     // get the kml (XML) doc. And parse it to get the coordinates(direction route). 
+	     Document doc = null; 
+	     HttpURLConnection urlConnection= null; 
+	     URL url = null; 
+	     try 
+	     {  
+	    	 url = new URL(urlString.toString()); 
+	    	 urlConnection=(HttpURLConnection)url.openConnection(); 
+	    	 urlConnection.setRequestMethod("GET"); 
+	    	 urlConnection.setDoOutput(true); 
+	    	 urlConnection.setDoInput(true); 
+	    	 urlConnection.connect(); 
+
+	    	 DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance(); 
+	    	 DocumentBuilder db = dbf.newDocumentBuilder(); 
+	    	 doc = db.parse(urlConnection.getInputStream()); 
+	    		
+	    	 if(doc.getElementsByTagName("Placemark").getLength()>0) 
+	    	 { 
+	    		for(int i=0;i<doc.getElementsByTagName("Placemark").getLength();i++)
+	    		{
+	    			DrivingDirectionModel drivingModel = new DrivingDirectionModel();
+	    			//Read driving direction info
+	    			String info = doc.getElementsByTagName("Placemark").item(i).getFirstChild().getFirstChild().getNodeValue();
+	    			//Read 
+	    			String distance = doc.getElementsByTagName("Placemark").item(i).getChildNodes().item(1).getFirstChild().getNodeValue().replace("&#160;", " ");
+	    		
+	    			//
+	    			drivingModel.setDistance(distance);
+	    			drivingModel.setDrivingName(info);
+	    			
+	    			lstDrivingDirection.add(drivingModel);
+	    		}
+	    	 } 
+	     } 
+	     catch (MalformedURLException e) 
+	     { 
+	    	e.printStackTrace(); 
+	     } 
+	     catch (IOException e) 
+	     { 
+	    	e.printStackTrace(); 
+	     } 
+	     catch (ParserConfigurationException e) 
+	     { 
+	    	e.printStackTrace(); 
+	     } 
+	     catch (SAXException e) 
+	     { 
+	    	e.printStackTrace(); 
+	     } 
+	    	
+	     return lstDrivingDirection;
 	}
 }
