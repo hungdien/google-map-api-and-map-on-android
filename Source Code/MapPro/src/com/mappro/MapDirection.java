@@ -3,12 +3,24 @@
  */
 package com.mappro;
 
+import java.util.Locale;
+
+import com.mappro.MapPlaces.GPSLocationListener;
+import com.mappro.supportedclass.GoogleDataReader;
+
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 /**
@@ -19,6 +31,14 @@ public class MapDirection extends Activity {
 	 /** Called when the activity is first created. */
 	private EditText placeA;
 	private EditText placeB;
+	private CheckBox chkPlaceNow;
+	private RadioButton radiob_map1;
+	private RadioButton radiob_list1;
+	
+	private String Address="";
+	
+	Geocoder geocoder;
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +48,61 @@ public class MapDirection extends Activity {
 	    final Button btnViewDirection = (Button)findViewById(R.id.btnViewDirection);
 	    placeA = (EditText)findViewById(R.id.editTextPlaceA);
 	    placeB = (EditText)findViewById(R.id.editTextPlaceB);
+	    chkPlaceNow = (CheckBox)findViewById(R.id.chkPlaceNow);
+	    radiob_list1 = (RadioButton)findViewById(R.id.radiob_list1);
+	    radiob_map1 = (RadioButton)findViewById(R.id.radiob_map1);
+	    
+	    //Location initiation
+	    geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
+	    LocationManager mlocManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+	    LocationListener mlocListener = new GPSLocationListener();
+	    mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, mlocListener);
+	    
+	    
+	    //
+	    //Event(s)
+	    //
+	    
+	    chkPlaceNow.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				 if (((CheckBox) v).isChecked()) 
+				 {
+					 placeA.setText(Address);
+			     }
+				 else
+			     {
+					 placeA.setText(" ");
+			     }
+			}
+		});
+	    
+	    radiob_list1.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				// TODO Auto-generated method stub
+				if (((RadioButton) v).isChecked())
+				{
+					radiob_map1.setChecked(false);
+				}
+			}
+		});
+	    
+	    radiob_map1.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				if (((RadioButton) v).isChecked())
+				{
+					radiob_list1.setChecked(false);
+				}
+			}
+		});
 	    
 	    btnViewDirection.setOnClickListener(new View.OnClickListener() {
 			
@@ -48,4 +123,30 @@ public class MapDirection extends Activity {
 			}
 		});
     }
+    
+	 public class GPSLocationListener implements LocationListener {
+	    	@Override
+	    	public void onLocationChanged(Location location)
+	    	{
+	    		GoogleDataReader reader = new  GoogleDataReader();
+	    		String address = reader.GetAddressFromLatLng(location.getLatitude(),location.getLongitude() 
+	    													,geocoder);
+	    		Address = address;
+	    	}
+
+	    	@Override
+	    	public void onProviderDisabled(String provider)
+	    	{
+	    	}
+	    	@Override
+	    	public void onProviderEnabled(String provider)
+	    	{
+	    	}
+
+	    	@Override
+	    	public void onStatusChanged(String provider, int status, Bundle extras)
+	    	{
+
+	    	}
+	    }
 }
