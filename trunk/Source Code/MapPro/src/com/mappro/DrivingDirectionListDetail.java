@@ -7,6 +7,7 @@ import com.mappro.model.DrivingDirectionModel;
 import com.mappro.supportedclass.GoogleDataReader;
 
 import android.app.Activity;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -50,7 +51,7 @@ public class DrivingDirectionListDetail extends Activity{
 		     if(lstDrivingModel.size()>2)
 		     {
 		    	 drivingDirectionModel = lstDrivingModel.get(lstDrivingModel.size()-1);
-		    	 txtRoute.setText(drivingDirectionModel.getDrivingName().replace("<br/>", " "));
+		    	 txtRoute.setText(drivingDirectionModel.getDistance().replace("<br/>", " "));
 		    	 
 		    	 //
 		    	 lstDrivingModel.remove(lstDrivingModel.size()-1);
