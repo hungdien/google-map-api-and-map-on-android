@@ -1,4 +1,4 @@
-package com.mappro.drivingdirectionlist;
+package com.mappro.locationlistview;
 
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
