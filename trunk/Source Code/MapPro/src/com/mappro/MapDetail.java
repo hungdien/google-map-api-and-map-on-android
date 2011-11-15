@@ -45,7 +45,7 @@ import android.widget.Toast;
 
 public class MapDetail extends MapActivity implements OnClickListener {
 	private MapView map; 
-	private Drawable d,d2;
+	private Drawable d;
 	    
 	private double lat ; // Temporary test values for lat/long 
 	private double lon  ; 
@@ -86,7 +86,7 @@ public class MapDetail extends MapActivity implements OnClickListener {
         secondButton.setOnClickListener(this);
         ///gps
         
-
+        d=getResources().getDrawable(R.drawable.startpoint);
         // Add map controller with zoom controls 
         map=(MapView)findViewById(R.id.mapv);
         controller = map.getController();
@@ -99,14 +99,21 @@ public class MapDetail extends MapActivity implements OnClickListener {
         GeoPoint point = new GeoPoint(10972006, 106667428);
         controller.animateTo(point);
         
+        overlayList = map.getOverlays();
+        
+        OverlayItem overlayItem1= new OverlayItem(point,"What 's up"," 2nd string");
+		CustomPinpoint custom1 = new CustomPinpoint(d, MapDetail.this);
+		custom1.insertPinpoint(overlayItem1);
+		overlayList.add(custom1);
+        
         //d=getResources().getDrawable(R.drawable.startpoint);
         
-        d=getResources().getDrawable(R.drawable.startpoint);
+        
         
         
       //overlay click point
         t=new Touchy();
-        overlayList = map.getOverlays();
+        
         overlayList.add(t);
         
         
