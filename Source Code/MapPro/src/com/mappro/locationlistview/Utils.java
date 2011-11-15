@@ -1,4 +1,4 @@
-package com.mappro.drivingdirectionlist;
+package com.mappro.locationlistview;
 
 import java.io.InputStream;
 import java.io.OutputStream;
