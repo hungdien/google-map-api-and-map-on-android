@@ -2,10 +2,9 @@ package com.mappro;
 
 import java.util.ArrayList;
 
-import com.mappro.drivingdirectionlist.DrivingAdapter;
 import com.mappro.model.DrivingDirectionModel;
 import com.mappro.supportedclass.GoogleDataReader;
-
+import com.mappro.locationlistview.DrivingAdapter;
 import android.app.Activity;
 import android.location.Geocoder;
 import android.os.Bundle;
