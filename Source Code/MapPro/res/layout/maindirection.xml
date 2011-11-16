@@ -73,9 +73,9 @@
 		android:layout_alignRight="@+id/textView3"></RadioButton>
 	<CheckBox 
 		android:layout_height="wrap_content" 
-		android:checked="true" 
+		android:checked="false" 
 		android:layout_width="wrap_content" 
-		android:id="@+id/checkbox_placenow1" 
+		android:id="@+id/chkPlaceNow" 
 		android:layout_above="@+id/editTextPlaceA" 
 		android:layout_alignRight="@+id/textView3" 
 		android:layout_marginRight="22dp"></CheckBox>
