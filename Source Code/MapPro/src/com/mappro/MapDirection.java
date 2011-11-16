@@ -113,11 +113,19 @@ public class MapDirection extends Activity {
 				String dest = placeB.getText().toString();
 				
 				Intent intent = new Intent();
-				intent.setClass(MapDirection.this, DrivingDirectionListDetail.class);
+				
+				
+				if(radiob_list1.isChecked())
+				{
+					intent.setClass(MapDirection.this, DrivingDirectionListDetail.class);
+				}
+				else
+				{
+					intent.setClass(MapDirection.this, DrivingDirectionMapDetail.class);
+				}
 				
 				intent.putExtra("src",src);
 				intent.putExtra("dest",dest);
-				
 				
 				startActivity(intent);
 			}
