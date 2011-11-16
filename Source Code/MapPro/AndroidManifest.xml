@@ -28,6 +28,7 @@
 		<activity android:name=".supportedclass.Prefs" android:label="prefs"></activity>
 		<activity android:name="LocationMapDetail"></activity>
 		<activity android:name=".DrivingDirectionListDetail"></activity>
+		<activity android:name=".DrivingDirectionMapDetail"></activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>    
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
