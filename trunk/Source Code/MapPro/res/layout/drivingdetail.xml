@@ -6,7 +6,6 @@
     android:weightSum="1">
     <TextView 
 		android:id="@+id/txtRoute" 
-		android:text="Khoảng cách: "
 		android:textColor="#FFFFFF"
 		android:layout_height="wrap_content" 
 		android:textSize="12dp" 
