@@ -34,11 +34,11 @@ public class LocationMapDetail extends MapActivity {
 	  private String keywork;
 	
 	  private ArrayList<GeoPoint> lstGeoPoint;
-	  	  private List<Overlay> overlayList;
-	  	  private Drawable d,d1;
+	  private List<Overlay> overlayList;
+	  private Drawable d,d1;
 	
-	 @Override
-	    public void onCreate(Bundle savedInstanceState) {
+	  @Override
+	  public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.mapme);
 	        int j = 0;
@@ -61,11 +61,6 @@ public class LocationMapDetail extends MapActivity {
 			    	 
 			     //get coordinate from google map by given key work
 			     lstGeoPoint = dataReader.PlacesCoordinateReader(keywork, lat, lng, 10);
-			     
-			     
-			     
-			     
-			     
 		     }
 		    
 		    lat1=lstGeoPoint.get(0).getLatitudeE6();
