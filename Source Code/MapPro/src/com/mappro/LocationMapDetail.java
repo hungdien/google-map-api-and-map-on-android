@@ -41,7 +41,6 @@ public class LocationMapDetail extends MapActivity {
 	  public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.mapme);
-	        int j = 0;
 	        d=getResources().getDrawable(R.drawable.startpoint);
 	        //d1=getResources().getDrawable(R.drawable.);
 	        
@@ -52,8 +51,13 @@ public class LocationMapDetail extends MapActivity {
 		    	 GoogleDataReader dataReader = new GoogleDataReader();
 		    	 keywork = extras.getString("keywork");
 		    	 
-		    	 if( keywork =="atm") {j=1;d=getResources().getDrawable(R.drawable.startpoint);}
-			     if( keywork =="bus") {j=2;d=getResources().getDrawable(R.drawable.atmicon1);}
+		    	 if( keywork.equalsIgnoreCase("atm")) {d=getResources().getDrawable(R.drawable.atmicon4);}
+		    	 else if(keywork.equalsIgnoreCase("school")) {d=getResources().getDrawable(R.drawable.school);}
+		    	 else if(keywork.equalsIgnoreCase("hospital")){d=getResources().getDrawable(R.drawable.hospital_nurse);}
+		    	 else if(keywork.equalsIgnoreCase("bus")) {d=getResources().getDrawable(R.drawable.bus);}
+		    	 else if(keywork.equalsIgnoreCase("bookstore")){d=getResources().getDrawable(R.drawable.bookstore);}
+		    	 else if(keywork.equalsIgnoreCase("hotel")){d=getResources().getDrawable(R.drawable.restaurant);}
+			    
 			     
 		         //current location
 			     lat = extras.getDouble("lat");
@@ -79,15 +83,7 @@ public class LocationMapDetail extends MapActivity {
 	        
 	        context = getApplicationContext();
 	        
-	       //switch(j)
-			 //{
-			 	//case 1: ;
-			 		//	break;
-			 	//case 2: d=getResources().getDrawable(R.drawable.atmicon1);
-			 		//	break;
-			 	
-			// }
-	        for(int i=0;i<10;i++){
+	        for(int i=0;i<lstGeoPoint.size()-1;i++){
 		        lat1=lstGeoPoint.get(i).getLatitudeE6();
 		     	lon=lstGeoPoint.get(i).getLongitudeE6();
 			    gp =new GeoPoint(lat1,lon);

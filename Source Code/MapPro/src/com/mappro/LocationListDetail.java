@@ -1,19 +1,15 @@
 package com.mappro;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 import android.app.Activity;
-import android.location.Geocoder;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.mappro.locationlistview.*;
-import com.mappro.model.CPoint;
 import com.mappro.model.PlaceModel;
 import com.mappro.supportedclass.GoogleDataReader;
 

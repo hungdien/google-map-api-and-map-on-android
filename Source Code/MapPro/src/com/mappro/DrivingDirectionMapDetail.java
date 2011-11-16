@@ -5,7 +5,6 @@ import java.util.Locale;
 import android.graphics.Color;
 import android.location.Geocoder;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;

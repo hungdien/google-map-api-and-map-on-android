@@ -6,14 +6,12 @@ import com.mappro.model.DrivingDirectionModel;
 import com.mappro.supportedclass.GoogleDataReader;
 import com.mappro.locationlistview.DrivingAdapter;
 import android.app.Activity;
-import android.location.Geocoder;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class DrivingDirectionListDetail extends Activity{
 	private ListView list;
@@ -24,15 +22,22 @@ public class DrivingDirectionListDetail extends Activity{
     private String src;
     private String dest;
     
+    
+    
     private TextView txtRoute;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+    
+        
         setContentView(R.layout.drivingdetail);
         
         list=(ListView)findViewById(R.id.drivinglist);
         txtRoute = (TextView)findViewById(R.id.txtRoute);
+        
+       
         
         //Get data from InputAddress activity
 	     Bundle extras = getIntent().getExtras();
@@ -61,8 +66,9 @@ public class DrivingDirectionListDetail extends Activity{
 	     adapter=new DrivingAdapter(this, lstDrivingModel);
 	     list.setAdapter(adapter);
 	     
-        Button b=(Button)findViewById(R.id.btnClearCache);
-        b.setOnClickListener(listener);
+	     
+         Button b=(Button)findViewById(R.id.btnClearCache);
+         b.setOnClickListener(listener);
     }
     
     @Override
