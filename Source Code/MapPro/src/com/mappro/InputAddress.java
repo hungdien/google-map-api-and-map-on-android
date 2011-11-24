@@ -149,6 +149,7 @@ public class InputAddress extends Activity {
                 		 intent.putExtra("lat",lat);
                 		 intent.putExtra("lng",lng);
                 		 intent.putExtra("keywork", keywork);
+                		 intent.putExtra("address", address);
                 		 
                 		 startActivity(intent);
                 		 return;
@@ -159,6 +160,7 @@ public class InputAddress extends Activity {
             			 intent.putExtra("lat",lat);
                 		 intent.putExtra("lng",lng);
                 		 intent.putExtra("keywork", keywork);
+                		 intent.putExtra("address", address);
                 		 
                 		 startActivity(intent);
                 		 return; 
@@ -187,7 +189,8 @@ public class InputAddress extends Activity {
      		    	    intent.putExtra("lat",point.lat);
      		    	    intent.putExtra("lng",point.lng);
      		    	    intent.putExtra("keywork", keywork);
-     		    	    
+     		    	    intent.putExtra("address", address);
+     		    	   
      		    	    startActivity(intent);
      		    	    return;
             		 }
@@ -198,7 +201,8 @@ public class InputAddress extends Activity {
       		    	    intent.putExtra("lat",point.lat);
       		    	    intent.putExtra("lng",point.lng);
       		    	    intent.putExtra("keywork", keywork);
-      		    	    
+      		    	    intent.putExtra("address", address);
+      		    	  
       		    	    startActivity(intent);
       		    	    return;
             		 }

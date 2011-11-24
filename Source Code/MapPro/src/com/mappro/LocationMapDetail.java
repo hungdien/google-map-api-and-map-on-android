@@ -94,9 +94,6 @@ public class LocationMapDetail extends MapActivity {
 				custom.insertPinpoint(overlayItem);
 				overlayList.add(custom);
 		        }
-	        
-	        
-	        
 	 }
 	 
 	@Override

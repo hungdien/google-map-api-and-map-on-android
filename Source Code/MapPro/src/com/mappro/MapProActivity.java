@@ -71,7 +71,7 @@ public class MapProActivity extends Activity {
 	     geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
 	     LocationManager mlocManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
 	     LocationListener mlocListener = new GPSLocationListener();
-	     mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, mlocListener);
+	     mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10000, 5, mlocListener);
 	  
 	 }
 
