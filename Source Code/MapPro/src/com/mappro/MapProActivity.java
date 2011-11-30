@@ -27,6 +27,10 @@ public class MapProActivity extends Activity {
     /** Called when the activity is first created. */
 	 Geocoder geocoder;
 	 TextView txt;
+	 LocationManager mlocManager;
+	 Location loc;
+	 String provider = LocationManager.GPS_PROVIDER;
+	 
 	 public void onCreate(Bundle savedInstanceState) {
 	     super.onCreate(savedInstanceState);
 	     setContentView(R.layout.main);
@@ -69,9 +73,9 @@ public class MapProActivity extends Activity {
 	     
 	     //Location initiation
 	     geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
-	     LocationManager mlocManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+	     mlocManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
 	     LocationListener mlocListener = new GPSLocationListener();
-	     mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10000, 5, mlocListener);
+	     mlocManager.requestLocationUpdates(provider, 10000, 5, mlocListener);
 	  
 	 }
 
@@ -116,9 +120,9 @@ public class MapProActivity extends Activity {
 	    	@Override
 	    	public void onLocationChanged(Location location)
 	    	{
-	    		txt.setText("Loading...");
+	    		loc = mlocManager.getLastKnownLocation(provider);
 	    		GoogleDataReader reader = new  GoogleDataReader();
-	    		String address = reader.GetAddressFromLatLng(location.getLatitude(),location.getLongitude() 
+	    		String address = reader.GetAddressFromLatLng(loc.getLatitude(),loc.getLongitude() 
 	    													,geocoder);
 	    		txt.setText(address);
 	    	}
