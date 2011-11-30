@@ -36,6 +36,10 @@ public class MapPlaces extends Activity {
 	 double lat=0.0;
 	 double lng=0.0;
 	 
+	 LocationManager mlocManager;
+	 Location loc;
+	 String provider = LocationManager.GPS_PROVIDER;
+	 
 	 public void onCreate(Bundle savedInstanceState) {
 	     super.onCreate(savedInstanceState);
 	     setContentView(R.layout.mainplaces);
@@ -60,9 +64,9 @@ public class MapPlaces extends Activity {
 	     
 	     //Location initiation
 	     geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
-	     LocationManager mlocManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+	     mlocManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
 	     LocationListener mlocListener = new GPSLocationListener();
-	     mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10000, 5, mlocListener);
+	     mlocManager.requestLocationUpdates(provider, 10000, 5, mlocListener);
 	 }
 	 
 	 public class ImageAdapter extends BaseAdapter{
@@ -116,8 +120,9 @@ public class MapPlaces extends Activity {
 	    	@Override
 	    	public void onLocationChanged(Location location)
 	    	{
+	    		loc = mlocManager.getLastKnownLocation(provider);
 	    		GoogleDataReader reader = new  GoogleDataReader();
-	    		String address = reader.GetAddressFromLatLng(location.getLatitude(),location.getLongitude() 
+	    		String address = reader.GetAddressFromLatLng(loc.getLatitude(),loc.getLongitude() 
 	    													,geocoder);
 	    		lat = location.getLatitude();
 	    		lng = location.getLongitude();
