@@ -37,8 +37,6 @@ public class DrivingDirectionListDetail extends Activity{
         list=(ListView)findViewById(R.id.drivinglist);
         txtRoute = (TextView)findViewById(R.id.txtRoute);
         
-       
-        
         //Get data from InputAddress activity
 	     Bundle extras = getIntent().getExtras();
 	     
@@ -48,9 +46,10 @@ public class DrivingDirectionListDetail extends Activity{
 	         //current location
 		     src = extras.getString("src");
 		     dest = extras.getString("dest");
-		    	 
+		     
+		     String transit = extras.getString("transit");
 		     //get info from google map by given key work
-		     lstDrivingModel = dataReader.DrivingDirectionReader(src, dest);
+		     lstDrivingModel = dataReader.DrivingDirectionReader(src, dest,transit);
 		     
 		     if(lstDrivingModel.size()>2)
 		     {

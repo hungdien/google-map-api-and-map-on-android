@@ -46,6 +46,8 @@ public class MapDirection extends Activity {
         
         //Initialize controls
 	    final Button btnViewDirection = (Button)findViewById(R.id.btnViewDirection);
+	    final Button btnViewDirBus = (Button)findViewById(R.id.btnViewDirBus);
+	    final Button btnViewDirWalk = (Button)findViewById(R.id.btnViewDirWalk);
 	    placeA = (EditText)findViewById(R.id.editTextPlaceA);
 	    placeB = (EditText)findViewById(R.id.editTextPlaceB);
 	    chkPlaceNow = (CheckBox)findViewById(R.id.chkPlaceNow);
@@ -126,7 +128,61 @@ public class MapDirection extends Activity {
 				
 				intent.putExtra("src",src);
 				intent.putExtra("dest",dest);
+				intent.putExtra("transit", "");
+				startActivity(intent);
+			}
+		});
+	    
+	    btnViewDirBus.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				String src = placeA.getText().toString();
+				String dest = placeB.getText().toString();
 				
+				Intent intent = new Intent();
+				
+				
+				if(radiob_list1.isChecked())
+				{
+					intent.setClass(MapDirection.this, DrivingDirectionListDetail.class);
+				}
+				else
+				{
+					intent.setClass(MapDirection.this, DrivingDirectionMapDetail.class);
+				}
+				
+				intent.putExtra("src",src);
+				intent.putExtra("dest",dest);
+				intent.putExtra("transit", "r");
+				startActivity(intent);
+			}
+		});
+	    
+	    btnViewDirWalk.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				String src = placeA.getText().toString();
+				String dest = placeB.getText().toString();
+				
+				Intent intent = new Intent();
+				
+				
+				if(radiob_list1.isChecked())
+				{
+					intent.setClass(MapDirection.this, DrivingDirectionListDetail.class);
+				}
+				else
+				{
+					intent.setClass(MapDirection.this, DrivingDirectionMapDetail.class);
+				}
+				
+				intent.putExtra("src",src);
+				intent.putExtra("dest",dest);
+				intent.putExtra("transit", "w");
 				startActivity(intent);
 			}
 		});
