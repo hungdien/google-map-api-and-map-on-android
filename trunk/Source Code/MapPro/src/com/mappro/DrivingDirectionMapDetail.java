@@ -47,6 +47,7 @@ public class DrivingDirectionMapDetail extends MapActivity{
 		         //current location
 			     src = extras.getString("src");
 			     dest = extras.getString("dest");
+			     String transit = extras.getString("transit");
 			     
 			     srcPoint = dataReader.GetLatLngFromAddress(src, geocoder);
 			     desPoint = dataReader.GetLatLngFromAddress(dest, geocoder);
@@ -61,7 +62,7 @@ public class DrivingDirectionMapDetail extends MapActivity{
 			     mapView.setTraffic(false);
 			     mapView.setBuiltInZoomControls(true);   // Set android:clickable=true in main.xml
 			     
-			     dataReader.DrawPath(srcGeo, desGeo, Color.RED, mapView); 
+			     dataReader.DrawPath(srcGeo, desGeo, Color.RED, mapView,transit); 
 			     mapView.getController().animateTo(srcGeo);
 			     
 			     mapControl = mapView.getController();
