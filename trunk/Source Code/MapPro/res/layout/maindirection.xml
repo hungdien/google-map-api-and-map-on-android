@@ -22,18 +22,7 @@
 		android:layout_below="@+id/editTextPlaceB" 
 		android:layout_alignLeft="@+id/editTextPlaceB" 
 		android:layout_marginTop="20dp" android:checked="true"></RadioButton>
-	<Button 
-		android:id="@+id/btnViewDirection" 
-		android:textColor="@android:color/white" 
-		android:layout_height="50dp" 
-		android:text="Xem" 
-		android:gravity="center" 
-		android:layout_width="100dp" 
-		android:textSize="20dp" 
-		android:layout_below="@+id/radiob_map1" 
-		android:layout_centerHorizontal="true" 
-		android:layout_marginTop="14dp"
-	></Button>
+	
 	<TextView 
 		android:id="@+id/textView4" 
 		android:text="Đến B" 
@@ -79,4 +68,23 @@
 		android:layout_above="@+id/editTextPlaceA" 
 		android:layout_alignRight="@+id/textView3" 
 		android:layout_marginRight="22dp"></CheckBox>
+	<Button 
+		android:layout_width="45dp" 
+		android:id="@+id/btnViewDirection" 
+		android:layout_height="30dp" 
+		android:layout_below="@+id/radiob_map1" 
+		android:layout_alignLeft="@+id/radiob_map1" 
+		android:layout_marginLeft="22dp" 
+		android:layout_marginTop="15dp" 
+		android:layout_alignRight="@+id/radiob_map1" 
+		android:background="@drawable/cardir"></Button>
+	<Button 
+		android:id="@+id/btnViewDirWalk" 
+		android:layout_height="30dp" 
+		android:layout_width="50dp" 
+		android:background="@drawable/walkdir" 
+		android:layout_alignBaseline="@+id/btnViewDirBus" 
+		android:layout_alignBottom="@+id/btnViewDirBus" 
+		android:layout_alignRight="@+id/chkPlaceNow"></Button>
+	<Button android:id="@+id/btnViewDirBus" android:layout_height="30dp" android:layout_width="50dp" android:background="@drawable/busdir" android:layout_alignBaseline="@+id/btnViewDirection" android:layout_alignBottom="@+id/btnViewDirection" android:layout_toLeftOf="@+id/btnViewDirWalk" android:layout_marginRight="23dp"></Button>
 </RelativeLayout>
