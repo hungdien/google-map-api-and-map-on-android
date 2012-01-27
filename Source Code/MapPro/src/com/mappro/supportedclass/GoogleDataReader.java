@@ -229,7 +229,7 @@ public class GoogleDataReader {
 	}
 
 	//Get driving direction
-	public ArrayList<DrivingDirectionModel> DrivingDirectionReader(String source, String destination)
+	public ArrayList<DrivingDirectionModel> DrivingDirectionReader(String source, String destination, String kindOfTrans)
 	{
 		 ArrayList<DrivingDirectionModel> lstDrivingDirection = new ArrayList<DrivingDirectionModel>();
 	     String a=URLEncoder.encode(source);
@@ -239,7 +239,7 @@ public class GoogleDataReader {
 	     StringBuilder urlString = new StringBuilder(); 
 	     urlString.append("http://maps.google.com/maps?saddr=");
 	     //For vietnamese: hl=vi
-	     urlString.append(a+"&daddr="+b+"&hl=vi&output=kml");
+	     urlString.append(a+"&daddr="+b+"&hl=vi&output=kml&dirflg=" + kindOfTrans);
 	     // get the kml (XML) doc. And parse it to get the coordinates(direction route). 
 	     Document doc = null; 
 	     HttpURLConnection urlConnection= null; 
@@ -295,7 +295,7 @@ public class GoogleDataReader {
 	     return lstDrivingDirection;
 	}
 
-	public void DrawPath(GeoPoint src,GeoPoint dest, int color, MapView mMapView01) 
+	public void DrawPath(GeoPoint src,GeoPoint dest, int color, MapView mMapView01, String kindOfTrans) 
     { 
     	// connect to map web service 
     	StringBuilder urlString = new StringBuilder(); 
@@ -308,7 +308,7 @@ public class GoogleDataReader {
     	urlString.append( Double.toString((double)dest.getLatitudeE6()/1.0E6 )); 
     	urlString.append(","); 
     	urlString.append( Double.toString((double)dest.getLongitudeE6()/1.0E6 )); 
-    	urlString.append("&ie=UTF8&0&om=0&output=kml"); 
+    	urlString.append("&ie=UTF8&0&om=0&output=kml&dirflg=" + kindOfTrans); 
     	Log.d("xxx","URL="+urlString.toString()); 
     	// get the kml (XML) doc. And parse it to get the coordinates(direction route). 
     	Document doc = null; 
