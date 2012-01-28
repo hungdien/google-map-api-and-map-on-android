@@ -18,7 +18,6 @@ import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
-import com.mappro.supportedclass.Help;
 import com.mappro.supportedclass.Prefs;
 import com.mappro.supportedclass.CustomPinpoint;
 
@@ -47,13 +46,8 @@ public class MapDetail extends MapActivity implements OnClickListener {
 	private MapView map; 
 	private Drawable d;
 	    
-	private double lat ; // Temporary test values for lat/long 
-	private double lon  ; 
     private int latE6; 
     private int lonE6; 
-    
-    private int las;
-    private int los;
     
     private GeoPoint gp; 
     private GeoPoint touchedPoint;
@@ -106,17 +100,9 @@ public class MapDetail extends MapActivity implements OnClickListener {
 		custom1.insertPinpoint(overlayItem1);
 		overlayList.add(custom1);
         
-        //d=getResources().getDrawable(R.drawable.startpoint);
-        
-        
-        
-        
-      //overlay click point
+       //overlay click point
         t=new Touchy();
-        
         overlayList.add(t);
-        
-        
         
 	 }
 	
@@ -133,9 +119,9 @@ public class MapDetail extends MapActivity implements OnClickListener {
     	}
     	if(stop-start>1500){
     		AlertDialog alert = new AlertDialog.Builder(MapDetail.this).create();
-    		alert.setTitle("Pick an option");
-    		alert.setMessage("T told to pick an option");
-    		alert.setButton("Place on pinpoint", new DialogInterface.OnClickListener() {
+    		alert.setTitle("Vui lòng chọn chức năng");
+    		//alert.setMessage("T told to pick an option");
+    		alert.setButton("Thêm pinpoint", new DialogInterface.OnClickListener() {
 				
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
@@ -144,14 +130,10 @@ public class MapDetail extends MapActivity implements OnClickListener {
 					CustomPinpoint custom = new CustomPinpoint(d, MapDetail.this);
 					custom.insertPinpoint(overlayItem);
 					overlayList.add(custom);
-					
-					
-					
-					
-					
 				}
 			});
-    		alert.setButton2("get address", new DialogInterface.OnClickListener() {
+    		
+    		alert.setButton2("Xem địa chỉ", new DialogInterface.OnClickListener() {
 				
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
@@ -162,8 +144,7 @@ public class MapDetail extends MapActivity implements OnClickListener {
 						if (address.size()>0){
 							String display= "";
 							for(int i=0;i<address.get(0).getMaxAddressLineIndex();i++){
-								
-								display +=address.get(0).getAddressLine(i)+"n";
+									display +=address.get(0).getAddressLine(i) + " ";
 								}
 							Toast t= Toast.makeText(getBaseContext(),display, Toast.LENGTH_LONG);
 							t.show();
@@ -176,7 +157,7 @@ public class MapDetail extends MapActivity implements OnClickListener {
 					}
 				}
 			});
-    		alert.setButton3("Toggle View", new DialogInterface.OnClickListener() {
+    		alert.setButton3("Chế độ BĐ", new DialogInterface.OnClickListener() {
 				
 				@Override
 				public void onClick(DialogInterface dialog, int which) {

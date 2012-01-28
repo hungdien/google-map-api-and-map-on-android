@@ -23,7 +23,6 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * @author TUAN-NGUYEN

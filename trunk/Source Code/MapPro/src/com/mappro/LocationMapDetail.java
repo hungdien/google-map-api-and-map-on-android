@@ -35,7 +35,7 @@ public class LocationMapDetail extends MapActivity {
 	
 	  private ArrayList<GeoPoint> lstGeoPoint;
 	  private List<Overlay> overlayList;
-	  private Drawable d,d1;
+	  private Drawable d;
 	
 	  @Override
 	  public void onCreate(Bundle savedInstanceState) {
