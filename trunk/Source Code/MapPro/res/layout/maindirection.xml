@@ -86,5 +86,13 @@
 		android:layout_alignBaseline="@+id/btnViewDirBus" 
 		android:layout_alignBottom="@+id/btnViewDirBus" 
 		android:layout_alignRight="@+id/chkPlaceNow"></Button>
-	<Button android:id="@+id/btnViewDirBus" android:layout_height="30dp" android:layout_width="50dp" android:background="@drawable/busdir" android:layout_alignBaseline="@+id/btnViewDirection" android:layout_alignBottom="@+id/btnViewDirection" android:layout_toLeftOf="@+id/btnViewDirWalk" android:layout_marginRight="23dp"></Button>
+	<Button 
+		android:layout_width="50dp" 
+		android:background="@drawable/busdir" 
+		android:layout_height="30dp" 
+		android:id="@+id/btnViewDirBus" 
+		android:layout_alignBaseline="@+id/btnViewDirection" 
+		android:layout_alignBottom="@+id/btnViewDirection" 
+		android:layout_toLeftOf="@+id/btnViewDirWalk" 
+		android:layout_marginRight="29dp"></Button>
 </RelativeLayout>
