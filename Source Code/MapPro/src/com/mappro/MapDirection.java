@@ -5,10 +5,10 @@ package com.mappro;
 
 import java.util.Locale;
 
-import com.mappro.MapPlaces.GPSLocationListener;
 import com.mappro.supportedclass.GoogleDataReader;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Geocoder;
@@ -21,7 +21,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.Toast;
 
 /**
  * @author TUAN-NGUYEN
@@ -111,6 +110,16 @@ public class MapDirection extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				
+				if ((placeA.getText().toString().equals("")) || 
+					(placeB.getText().toString().equals("")))
+       		 	{
+       				 new AlertDialog.Builder(MapDirection.this).setTitle("Thông báo" )
+       				 .setMessage("Vui lòng nhập vào địa chỉ.")
+       				 .setPositiveButton("OK", null).show();
+       				 return;
+       		 	}
+				
 				String src = placeA.getText().toString();
 				String dest = placeB.getText().toString();
 				
@@ -138,6 +147,16 @@ public class MapDirection extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				
+				if ((placeA.getText().toString().equals("")) || 
+						(placeB.getText().toString().equals("")))
+	       		 	{
+	       				 new AlertDialog.Builder(MapDirection.this).setTitle("Thông báo" )
+	       				 .setMessage("Vui lòng nhập vào địa chỉ.")
+	       				 .setPositiveButton("OK", null).show();
+	       				 return;
+	       		 	}
+				
 				String src = placeA.getText().toString();
 				String dest = placeB.getText().toString();
 				
@@ -165,6 +184,16 @@ public class MapDirection extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				
+				if ((placeA.getText().toString().equals("")) || 
+						(placeB.getText().toString().equals("")))
+	       		 	{
+	       				 new AlertDialog.Builder(MapDirection.this).setTitle("Thông báo" )
+	       				 .setMessage("Vui lòng nhập vào địa chỉ.")
+	       				 .setPositiveButton("OK", null).show();
+	       				 return;
+	       		 	}
+				
 				String src = placeA.getText().toString();
 				String dest = placeB.getText().toString();
 				
