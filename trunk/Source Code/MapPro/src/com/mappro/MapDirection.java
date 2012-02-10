@@ -114,8 +114,8 @@ public class MapDirection extends Activity {
 				if ((placeA.getText().toString().equals("")) || 
 					(placeB.getText().toString().equals("")))
        		 	{
-       				 new AlertDialog.Builder(MapDirection.this).setTitle("Thông báo" )
-       				 .setMessage("Vui lòng nhập vào địa chỉ.")
+       				 new AlertDialog.Builder(MapDirection.this).setTitle("ThÃ´ng bÃ¡o" )
+       				 .setMessage("Vui lÃ²ng nháº­p vÃ o Ä‘á»‹a chá»‰.")
        				 .setPositiveButton("OK", null).show();
        				 return;
        		 	}

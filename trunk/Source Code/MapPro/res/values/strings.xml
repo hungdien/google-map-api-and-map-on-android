@@ -3,7 +3,8 @@
     <string name="hello">Hello World, MapProActivity!</string>
     <string name="app_name">MapPro</string>
         <string name="place">Địa điểm</string> 
-      <string name="street">Dẫn đường</string> 
+      <string name="street">Dẫn đường</string>
+      
       
 
     <string name="locLabel">Location:</string>
@@ -27,6 +28,8 @@
     <string name="apiKeyM33">07WVUg-srWUbhpkGj1mi0w56xD9nMEu0NhqJeYg</string>
     <string name="apiKeyM81">0Erct0VhQ1pDVF0Hb1hCaTPnBG1MhmaSqaNvjdg</string>
     <string name="apiKeyCastor">07WVUg-srWUbTcCW-uHqNQR4SdYngQOCgmJN60A</string>
+    <string name="note1">Thông báo</string>  
+    
     
 
       

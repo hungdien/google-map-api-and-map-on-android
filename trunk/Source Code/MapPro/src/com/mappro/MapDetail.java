@@ -98,7 +98,7 @@ public class MapDetail extends MapActivity implements OnClickListener {
         OverlayItem overlayItem1= new OverlayItem(point,"What 's up"," 2nd string");
 		CustomPinpoint custom1 = new CustomPinpoint(d, MapDetail.this);
 		custom1.insertPinpoint(overlayItem1);
-		overlayList.add(custom1);
+		//overlayList.add(custom1);
         
        //overlay click point
         t=new Touchy();
@@ -157,7 +157,7 @@ public class MapDetail extends MapActivity implements OnClickListener {
 					}
 				}
 			});
-    		alert.setButton3("Chế độ BĐ", new DialogInterface.OnClickListener() {
+    		alert.setButton3("Bản đồ", new DialogInterface.OnClickListener() {
 				
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
