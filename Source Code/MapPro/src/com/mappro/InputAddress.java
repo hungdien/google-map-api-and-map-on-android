@@ -170,7 +170,7 @@ public class InputAddress extends Activity {
             	 {
             		 if ((edit_placechose.getText().toString().equals("")))
             		 {
-            				 new AlertDialog.Builder(InputAddress.this).setTitle("Thông báo" )
+            				 new AlertDialog.Builder(InputAddress.this).setTitle(R.string.note1 )
             				 .setMessage("Vui lòng nhập vào địa chỉ.")
             				 .setPositiveButton("OK", null).show();
             				 return;
