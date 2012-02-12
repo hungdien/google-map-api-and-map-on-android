@@ -74,7 +74,7 @@ public class Mapme extends MapActivity implements LocationListener {
 				 	break;
 				 	case GpsStatus.GPS_EVENT_FIRST_FIX:
 				 		// First Fix...
-				 		Toast.makeText(Mapme.this, "GPS has First fix", Toast.LENGTH_LONG).show();
+				 		//Toast.makeText(Mapme.this, "GPS has First fix", Toast.LENGTH_LONG).show();
 				 	break;
 				 	case GpsStatus.GPS_EVENT_STOPPED:
 				 		// Stopped...
