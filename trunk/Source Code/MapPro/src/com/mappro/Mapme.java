@@ -4,6 +4,7 @@ package com.mappro;
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
 import android.location.GpsSatellite;
 import android.location.GpsStatus;
 import android.location.Location;
@@ -12,6 +13,8 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.Window;
 import android.widget.Toast;
 
@@ -256,5 +259,40 @@ public class Mapme extends MapActivity implements LocationListener {
 			GPSmoveInterval = 1000;
 			break;
 		}	
+	}
+	public boolean onCreateOptionsMenu(Menu menu){
+		super.onCreateOptionsMenu(menu);
+		int groupId = 0;
+		int menuItemOrder = Menu.NONE;
+		// Create menu ids for the event handler to reference
+		int menuItemId1 = Menu.FIRST;
+		//int menuItemId2 = Menu.FIRST+1;
+		//int menuItemId3 = Menu.FIRST+2;
+		// Create menu text
+		int menuItemText1 = R.string.sms;
+		//int menuItemText2 = R.string.street;
+		//int menuItemText3 = R.string.settings;
+		// Add the items to the menu
+		MenuItem menuItem1 = menu.add(groupId, menuItemId1, menuItemOrder, menuItemText1)
+			.setIcon(R.drawable.ic_menu_close_clear_cancel);
+		//MenuItem menuItem2 = menu.add(groupId, menuItemId2, menuItemOrder, menuItemText2)
+			//.setIcon(R.drawable.ic_menu_help);
+		//MenuItem menuItem3 = menu.add(groupId, menuItemId3, menuItemOrder, menuItemText3)
+			//.setIcon(R.drawable.ic_menu_preferences);
+		return true;
+	}
+	
+	public boolean onOptionsItemSelected(MenuItem item){
+		super.onOptionsItemSelected(item);
+		switch(item.getItemId()){
+			case (Menu.FIRST):
+				//finishUp();
+				Intent i = new Intent(this, SMSMessagingActivity.class);
+				startActivity(i);
+				return true;
+			
+		
+		}
+		return false;
 	}
 }

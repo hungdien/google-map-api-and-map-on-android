@@ -48,6 +48,7 @@ public final class R {
     }
     public static final class id {
         public static final int btnClearCache=0x7f070002;
+        public static final int btnSendSMS=0x7f070029;
         public static final int btnViewDirBus=0x7f07001e;
         public static final int btnViewDirWalk=0x7f07001d;
         public static final int btnViewDirection=0x7f07001b;
@@ -83,6 +84,8 @@ public final class R {
         public static final int textView2=0x7f070005;
         public static final int textView3=0x7f070019;
         public static final int textView4=0x7f070016;
+        public static final int txtMessage=0x7f070028;
+        public static final int txtPhoneNo=0x7f070027;
         public static final int txtPositionPlaces=0x7f070025;
         public static final int txtRoute=0x7f070000;
         public static final int zoom=0x7f070020;
@@ -98,6 +101,7 @@ public final class R {
         public static final int mainmap=0x7f030007;
         public static final int mainplaces=0x7f030008;
         public static final int mapme=0x7f030009;
+        public static final int sms=0x7f03000a;
     }
     public static final class string {
         public static final int apiKeyCastor=0x7f060015;
@@ -123,6 +127,7 @@ public final class R {
         public static final int quit=0x7f06000b;
         public static final int satLabel=0x7f060009;
         public static final int settings=0x7f06000e;
+        public static final int sms=0x7f060017;
         public static final int street=0x7f060003;
         public static final int trackLabel=0x7f060008;
     }
