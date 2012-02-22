@@ -46,8 +46,8 @@ public class MapDetail extends MapActivity implements OnClickListener {
 	private MapView map; 
 	private Drawable d;
 	    
-    private int latE6; 
-    private int lonE6; 
+    private int latE6=(int) (MapProActivity .getlat()*1e6); 
+    private int lonE6=(int) (MapProActivity .getlong()*1e6); 
     
     private GeoPoint gp; 
     private GeoPoint touchedPoint;
@@ -90,7 +90,7 @@ public class MapDetail extends MapActivity implements OnClickListener {
         int maxZoom = map.getMaxZoomLevel(); 
         int initZoom = (int)(0.90*(double)maxZoom); 
         controller.setZoom(initZoom); 
-        GeoPoint point = new GeoPoint(10972006, 106667428);
+        GeoPoint point = new GeoPoint(latE6, lonE6);
         controller.animateTo(point);
         
         overlayList = map.getOverlays();

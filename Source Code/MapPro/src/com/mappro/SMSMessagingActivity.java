@@ -3,7 +3,9 @@ package com.mappro;
 import java.util.Locale;
 
 import com.mappro.MapPlaces.GPSLocationListener;
+import com.mappro.R.string;
 import com.mappro.supportedclass.GoogleDataReader;
+import com.mappro.supportedclass.Prefs;
 
 import android.app.Activity;
 import android.app.PendingIntent;
@@ -46,7 +48,8 @@ public class SMSMessagingActivity extends Activity
         btnSendSMS = (Button) findViewById(R.id.btnSendSMS);
         txtPhoneNo = (EditText) findViewById(R.id.txtPhoneNo);
         txtMessage = (EditText) findViewById(R.id.txtMessage);
-        
+        String gps = (String) MapProActivity .gettext();
+        txtMessage.setText(gps);
         /*
         Intent sendIntent = new Intent(Intent.ACTION_VIEW);
         sendIntent.putExtra("sms_body", "Content of the SMS goes here..."); 
@@ -58,8 +61,10 @@ public class SMSMessagingActivity extends Activity
         {
             public void onClick(View v) 
             {            	
+            	
             	String phoneNo = txtPhoneNo.getText().toString();
-            	String message = txtMessage.getText().toString();             	
+            	String message = txtMessage.getText().toString();  
+            	 
                 if (phoneNo.length()>0 && message.length()>0)                
                     sendSMS(phoneNo, message);                
                 else
