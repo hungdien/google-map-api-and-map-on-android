@@ -63,14 +63,14 @@ protected boolean onTap(int i){
 		
 		String display= "";
 		
-		Geocoder geocoder = new Geocoder(LocationMapDetail.context);
+		Geocoder geocoder = new Geocoder(LocationMapDetail.context,Locale.getDefault());
 		try{
 			List<Address> address = geocoder.getFromLocation(gpoint.getLatitudeE6()/1e6, gpoint.getLongitudeE6()/1e6, 1);
 			if (address.size()>0){
 				
 				for( i=0;i<address.get(0).getMaxAddressLineIndex();i++){
 					
-					display +=address.get(0).getAddressLine(i)+"n";
+					display +=address.get(0).getAddressLine(i)+" ";
 					}
 				//Toast t= Toast.makeText(getBaseContext(),display, Toast.LENGTH_LONG);
 				//t.show();
@@ -84,9 +84,9 @@ protected boolean onTap(int i){
 		
 		
 		
-		String toast = "Title: ";
-		toast += "\nText: ";
-		toast += 	"\nSymbol coordinates: Lat = "+lat+" Lon = "+lon+" (microdegrees)";
+		//String toast = "Title: ";
+		//toast += "\nText: ";
+		//toast += 	"\nSymbol coordinates: Lat = "+lat+" Lon = "+lon+" (microdegrees)";
 		Toast.makeText( LocationMapDetail.context, display, Toast.LENGTH_LONG).show();
 		return(true);
 	}
