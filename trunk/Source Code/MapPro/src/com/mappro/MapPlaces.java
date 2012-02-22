@@ -15,6 +15,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -32,8 +33,9 @@ public class MapPlaces extends Activity {
 	 /** Called when the activity is first created. */
 	 Geocoder geocoder;
 	 TextView txtPosition;
-	 double lat=0.0;
-	 double lng=0.0;
+	 static String gps;
+	 double lat=MapProActivity .getlat();
+	 double lng=MapProActivity .getlong();
 	 
 	 LocationManager mlocManager;
 	 Location loc;
@@ -46,6 +48,8 @@ public class MapPlaces extends Activity {
 	     GridView places = (GridView)findViewById(R.id.gvPlaces);
 	     txtPosition = (TextView)findViewById(R.id.txtPositionPlaces);
 	     txtPosition.setText("Loading...");
+	     String gps = (String) MapProActivity .gettext();
+	     txtPosition.setText(gps);
 	     places.setAdapter(new ImageAdapter(this));
 	     
 	     //Click item event
@@ -127,6 +131,7 @@ public class MapPlaces extends Activity {
 	    		lng = location.getLongitude();
 	    		
 	    		txtPosition.setText(address);
+	    		gps=(String)txtPosition.getText();
 	    	}
 
 	    	@Override
@@ -144,6 +149,7 @@ public class MapPlaces extends Activity {
 
 	    	}
 	    }/* End of Class GPSLocationListener */
+	 
 	 
 	 public String getKeywork(int position){
 		 String keywork = "";
@@ -166,4 +172,8 @@ public class MapPlaces extends Activity {
 		 
 		 return keywork;
 	 }
+	public static String gettext() {
+		// TODO Auto-generated method stub
+		return gps;
+	}
 }

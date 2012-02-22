@@ -29,8 +29,8 @@ import com.mappro.supportedclass.Prefs;
 
 public class Mapme extends MapActivity implements LocationListener {
 	
-	private static double lat;
-	private static double lon;
+	private static double lat=MapProActivity .getlat();
+	private static double lon=MapProActivity .getlong();
 	private MapController mapControl;
 	private MapView mapView;
 	LocationManager locman;

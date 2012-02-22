@@ -30,6 +30,9 @@ public class MapProActivity extends Activity {
 	 LocationManager mlocManager;
 	 Location loc;
 	 String provider = LocationManager.GPS_PROVIDER;
+	 static String gpsnow;
+	 public static double lat=0.0;
+	 public static double lng=0.0;
 	 
 	 public void onCreate(Bundle savedInstanceState) {
 	     super.onCreate(savedInstanceState);
@@ -124,7 +127,10 @@ public class MapProActivity extends Activity {
 	    		GoogleDataReader reader = new  GoogleDataReader();
 	    		String address = reader.GetAddressFromLatLng(loc.getLatitude(),loc.getLongitude() 
 	    													,geocoder);
+	    		lat = location.getLatitude();
+	    		lng = location.getLongitude();
 	    		txt.setText(address);
+	    		gpsnow=txt.getText().toString();
 	    	}
 
 	    	@Override
@@ -142,4 +148,22 @@ public class MapProActivity extends Activity {
 
 	    	}
 	    }/* End of Class GPSLocationListener */
+	 
+	 public static double getlat() {
+			// TODO Auto-generated method stub
+			return lat;
+		}
+	 public static double getlong() {
+			// TODO Auto-generated method stub
+			return lng;
+		}
+
+	
+
+
+
+	public static String gettext() {
+		// TODO Auto-generated method stub
+		return gpsnow;
+	}
 	}	

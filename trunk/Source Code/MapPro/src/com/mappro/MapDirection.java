@@ -71,7 +71,14 @@ public class MapDirection extends Activity {
 				// TODO Auto-generated method stub
 				 if (((CheckBox) v).isChecked()) 
 				 {
-					 placeA.setText(Address);
+					 
+					 String gps = (String) MapProActivity .gettext();
+					 if(Address=="")
+					 {placeA.setText(gps);}
+					 else
+					 {placeA.setText(Address);}
+						 
+					 
 			     }
 				 else
 			     {
