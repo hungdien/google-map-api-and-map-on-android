@@ -15,11 +15,6 @@
     android:entries="@array/updateOptions"
     android:entryValues="@array/updateIndex" />
     
-  <EditTextPreference
-    android:name="EditText Preference"
-    android:summary="This allows you to edit the name"
-    android:defaultValue=""
-    android:title="Edit the Name"
-    android:key="editTextPref" />
+  
 
 </PreferenceScreen>

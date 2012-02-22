@@ -91,6 +91,12 @@ public class MapDetail extends MapActivity implements OnClickListener {
         int initZoom = (int)(0.90*(double)maxZoom); 
         controller.setZoom(initZoom); 
         GeoPoint point = new GeoPoint(latE6, lonE6);
+        if(latE6==0){
+        	  point = new GeoPoint(10769568, 106692678);
+        }
+      
+        
+        
         controller.animateTo(point);
         
         overlayList = map.getOverlays();
