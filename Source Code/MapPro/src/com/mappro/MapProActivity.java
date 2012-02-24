@@ -71,6 +71,11 @@ public class MapProActivity extends Activity {
 	            	  intent.setClass(MapProActivity.this, MapDirection.class);
 	            	  startActivity(intent);
 	              }
+	              
+	              if(position==3){
+	            	  intent.setClass(MapProActivity.this, AboutActivity.class);
+	            	  startActivity(intent);
+	              }
 	          }
 		 });
 	     
