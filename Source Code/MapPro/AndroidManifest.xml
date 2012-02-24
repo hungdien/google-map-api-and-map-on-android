@@ -32,6 +32,7 @@
 		<activity android:name=".DrivingDirectionListDetail"></activity>
 		<activity android:name=".DrivingDirectionMapDetail"></activity>
 		<activity android:name=".SMSMessagingActivity"></activity>
+		<activity android:name=".AboutActivity"></activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>    
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
