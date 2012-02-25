@@ -19,11 +19,11 @@
 			android:textSize="16sp" 
 			android:textStyle="bold"/>
 		<TextView android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:text="PGS.TS. Vu Thanh Nguyen"
+			android:layout_height="wrap_content" android:text="PGS.TS. Vũ Thanh Nguyên"
 			android:textSize="16sp" 
 			android:textStyle="bold"/>
 		<TextView android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:text="CH. Tran Anh Dung"
+			android:layout_height="wrap_content" android:text="CH. Trần Anh Dũng"
 			android:textSize="16sp" 
 			android:textStyle="bold"/>
 	</LinearLayout>
@@ -35,11 +35,11 @@
 			android:textSize="16sp" 
 			android:textStyle="bold"/>
 		<TextView android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:text="Nguyen Minh Tuan"
+			android:layout_height="wrap_content" android:text="Nguyễn Minh Tuấn"
 			android:textSize="16sp" 
 			android:textStyle="bold"/>
 		<TextView android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:text="Truong Duy"
+			android:layout_height="wrap_content" android:text="Trương Duy"
 			android:textSize="16sp" 
 			android:textStyle="bold"/>
 	</LinearLayout>
