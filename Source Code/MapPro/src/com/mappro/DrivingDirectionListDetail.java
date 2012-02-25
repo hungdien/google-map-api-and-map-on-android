@@ -12,6 +12,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DrivingDirectionListDetail extends Activity{
 	private ListView list;
@@ -59,6 +60,11 @@ public class DrivingDirectionListDetail extends Activity{
 		    	 //
 		    	 lstDrivingModel.remove(lstDrivingModel.size()-1);
 		    	 lstDrivingModel.remove(lstDrivingModel.size()-2);
+		     }
+		     else
+		     {
+				Toast.makeText(this, "Chưa tồn tại dữ liệu cho thành phố này",
+						Toast.LENGTH_LONG).show();
 		     }
 	     }
         

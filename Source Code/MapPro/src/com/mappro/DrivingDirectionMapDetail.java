@@ -5,6 +5,7 @@ import java.util.Locale;
 import android.graphics.Color;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
@@ -51,6 +52,12 @@ public class DrivingDirectionMapDetail extends MapActivity{
 			     
 			     srcPoint = dataReader.GetLatLngFromAddress(src, geocoder);
 			     desPoint = dataReader.GetLatLngFromAddress(dest, geocoder);
+			     
+			     if(srcPoint!=null){
+			    	 Toast.makeText(this, "Chưa tồn tại dữ liệu cho thành phố này",
+								Toast.LENGTH_LONG).show();
+			    	 return;
+			     }
 			     
 			     //Convert Point to GeoPoint
 			     srcGeo = new GeoPoint((int)(srcPoint.lat*1E6),(int)(srcPoint.lng*1E6));
