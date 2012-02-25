@@ -53,7 +53,7 @@ public class DrivingDirectionMapDetail extends MapActivity{
 			     srcPoint = dataReader.GetLatLngFromAddress(src, geocoder);
 			     desPoint = dataReader.GetLatLngFromAddress(dest, geocoder);
 			     
-			     if(srcPoint!=null){
+			     if(srcPoint==null){
 			    	 Toast.makeText(this, "Chưa tồn tại dữ liệu cho thành phố này",
 								Toast.LENGTH_LONG).show();
 			    	 return;
